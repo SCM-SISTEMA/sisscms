@@ -1,0 +1,202 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/provedor/cadastro.js')?>	
+<style>
+.modal {
+  left:35%;
+  width:900px;
+  margin-left:-222px;
+}
+</style>
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: Provedores ::.</h3>
+	</div>
+</div>
+<div class="well bs-component">
+	<form name="frmCadastroProvedor" id="frmCadastroProvedor" class="form-horizontal" method="post"  action="">
+		<fieldset>
+			<legend>Cadastro</legend>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Nome: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<input type="text" style="width: 500px;" class="" required="required" name="nome" id="nome" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Nome Fantasia: </label>
+				<div class="col-lg-10">
+					<input type="text" style="width: 500px;" name="nome_fantasia" id="nome_fantasia" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Tipo: </label>
+				<div class="col-lg-10">
+					<input type="radio" name="tipo" value="1"> Pessoa Física
+					<input type="radio" name="tipo" value="2"> Pessoa Jurídica
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="cpf">CPF: </label>
+				<div class="col-lg-10">
+					<input type="text" name="cpf" id="cpf" value="" data-mask="999.999.999-99">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">CNPJ: <span style="color:red">*&nbsp;</span></label>
+				<div class="col-lg-10">
+					<input type="text" name="cnpj" required="required" id="cnpj" value="" data-mask="999.999.999/9999-99">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Endereço: </label>
+				<div class="col-lg-10">
+					<input type="text" style="width: 500px;" name="endereco" id="endereco" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>	
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Estado: </label>
+				<div class="col-lg-10">
+					<select id="estado" name="estado">
+                                  <option value="">- -</option>
+                                  <option value="AC">AC</option> 
+                                  <option value="AL">AL</option> 
+                                  <option value="AM">AM</option> 
+                                  <option value="AP">AP</option> 
+                                  <option value="BA">BA</option> 
+                                  <option value="CE">CE</option> 
+                                  <option value="DF">DF</option> 
+                                  <option value="ES">ES</option> 
+                                  <option value="GO">GO</option> 
+                                  <option value="MA">MA</option> 
+                                  <option value="MG">MG</option> 
+                                  <option value="MS">MS</option> 
+                                  <option value="MT">MT</option> 
+                                  <option value="PA">PA</option> 
+                                  <option value="PB">PB</option> 
+                                  <option value="PE">PE</option> 
+                                  <option value="PI">PI</option> 
+                                  <option value="PR">PR</option> 
+                                  <option value="RJ">RJ</option> 
+                                  <option value="RN">RN</option> 
+                                  <option value="RO">RO</option> 
+                                  <option value="RR">RR</option> 
+                                  <option value="RS">RS</option> 
+                                  <option value="SC">SC</option> 
+                                  <option value="SE">SE</option> 
+                                  <option value="SP">SP</option> 
+                                  <option value="TO">TO</option>
+                                </select>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Cidade: </label>
+				<div class="col-lg-10">
+					<input type="text" style="width: 500px;" name="cidade" id="cidade" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">CEP: </label>
+				<div class="col-lg-10">
+					<input type="text" name="cep" id="cep" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Telefone: <span style="color:red">*&nbsp;</span></label>
+				<div class="col-lg-10">
+					<input type="text" name="telefone" required="required" id="telefone" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">0800: </label>
+				<div class="col-lg-10">
+					<input type="text" name="0800" id="0800" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">E-mail <span style="color:red">*&nbsp;</span>: </label>
+				<div class="col-lg-10">
+					<input type="email" style="width: 500px;" name="email" id="email" required="required" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">MSN ou Skype : </label>
+				<div class="col-lg-10">
+					<input type="email" style="width: 500px;" name="msnskype" id="msnskype" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Técnico Responsável : </label>
+				<div class="col-lg-10">
+					<input type="email" style="width: 500px;" name="tecnico" id="tecnico" value="">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Plano:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="plano" name="plano"  rows="3" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Ata:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="ata" name="ata"  rows="3" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Observação:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="obs" name="obs"  rows="3" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<button class="btn btn-default">Cancelar</button>
+					<button class="btn btn-primary" type="submit">Salvar</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<div class="modal hide fade modal-lg" id="modal_recentes" >
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Chamados Recentes</h3>
+		</div>
+		<div id="recentes_conteudo" class="modal-body"></div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Fechar</a>
+		</div>
+	</div>
+	
+<div id="modal_excluir" class="modal hide fade" id="confirm-dialog">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">x</a>
+		<h3>Confirmar</h3>
+	</div>
+	<div class="modal-body">Deseja deletar este registro?<input type="hidden" id="co_modal"></div>
+	<div class="modal-footer">
+		<a style="cursor: pointer" onclick="deletar()" class="btn btn-danger">Ok</a> 
+		<a style="cursor: pointer"	class="btn btn-cancel" data-dismiss="modal">Cancelar</a>
+	</div>
+</div>

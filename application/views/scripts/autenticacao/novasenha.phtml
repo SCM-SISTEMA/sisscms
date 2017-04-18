@@ -1,0 +1,20 @@
+<?php $this->headScript()->appendFile(Zend_Registry::get('config')->caminho->componente.'scripts/masked-input.js');?>
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/autenticacao/novasenha.js')?>
+
+<h1>Nova Senha</h1>
+
+<form action="" name="FormUsuario" method="post" class="form">
+	<div class="grid-2-12">
+		<label class="form-lbl">CPF:</label>
+		<input type="text" name="nu_cpf" id="nu_cpf" class="form-txt" value="<?php echo $this->nu_cpf;?>">
+	</div>
+	
+	<div class="grid-8-12">
+		<label class="form-lbl">E-mail:</label>
+		<input type="text" name="ds_email" id="ds_email" class="form-txt" maxlength="100" value="<?php echo $this->ds_email;?>">
+	</div>
+	
+	<div class="grid-2-12 form-no-lbl">
+		<input type="button" class="form-button" value="Nova senha" onclick="javascript: novasenha();">
+	</div>
+</form>

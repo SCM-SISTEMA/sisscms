@@ -1,0 +1,45 @@
+<?php if ($this->pageCount): ?>
+<?php if($this->totalItemCount>0) : $s = 's';endif;?>
+<div class="pagination pagination-right">
+	<ul>
+		<li class="disabled"><a><?php echo $this->totalItemCount?>	Registro<?php echo $s ?> Encontrados</a></li>
+	</ul>	
+	<form id="frmCount" action="" method="post">
+		<select style="width: 70px;" name="count_per_page" onchange="$('#frmCount').submit()">
+			<option value=""> -- </option>
+			<option value="10" <?php if($this->pcount == 10): echo 'selected="selected"';endif;?>>10</option>
+			<option value="20" <?php if($this->pcount == 20): echo 'selected="selected"';endif;?>>20</option>
+			<option value="30" <?php if($this->pcount == 30): echo 'selected="selected"';endif;?>>30</option>
+			<option value="40" <?php if($this->pcount == 40): echo 'selected="selected"';endif;?>>40</option>
+			<option value="50" <?php if($this->pcount == 50): echo 'selected="selected"';endif;?>>50</option>
+		</select>
+	</form>
+</div>
+
+<div class="pagination pagination-centered">
+	<ul>
+		<li class=""></li>
+<!-- Previous page link -->
+<?php if (isset($this->previous)): ?>
+	<li><a href="<?php echo $this->url(array('page' => $this->previous)); ?>">« Anterior</a></li>
+<?php else: ?>
+    <li class=" disabled"><a href="#">« Anterior</a></li>
+<?php endif; ?>
+<li></li>
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>
+    <?php if ($page != $this->current): ?>
+    	<li><a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page; ?></a></li>
+    <?php else: ?>
+    	<li class=" disabled"><a href="#"><?php echo $page; ?></a></li>
+    <?php endif; ?>
+<?php endforeach; ?>
+ 
+<!-- Next page link -->
+<?php if (isset($this->next)): ?>
+	<li><a href="<?php echo $this->url(array('page' => $this->next)); ?>">Próximo »</a></li>
+<?php else: ?>
+	<li class=" disabled"><a href="#">Próximo »</a></li>
+<?php endif; ?>
+</div>
+<?php endif; ?>

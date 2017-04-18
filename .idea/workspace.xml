@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ab565243-7a6f-418d-a459-ccec8bdbff9c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/images/bkgrnd.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/images/phpmailer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/images/phpmailer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/images/phpmailer_mini.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/test/test.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/images/phpmailer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/images/phpmailer_mini.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/wrapping.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/android-chrome-36x36.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/android-chrome-48x48.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/android-chrome-72x72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/apple-touch-icon-57x57.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/apple-touch-icon-60x60.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/apple-touch-icon-72x72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/apple-touch-icon-precomposed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/apple-touch-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/favicon-16x16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/favicon-32x32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/mstile-150x150.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/mstile-310x150.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/mstile-70x70.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ak.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/al.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/az.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ca.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/co.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ct.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/de.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/fl.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ga.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/hi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ia.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/id.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/il.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ky.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/la.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ma.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/md.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/me.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/mi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/mn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/mo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ms.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/mt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ne.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nm.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/nv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ny.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/oh.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ok.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/or.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/pa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ri.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/sc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/sd.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/tn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/tx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/ut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/va.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/vt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/wa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/wi.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/wv.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/images/flags/wy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/email/views/helpers/PessoaJuridica.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/financeiro/views/helpers/PessoaJuridica.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/.scrutinizer.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/ChangeLog.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/class.phpmailer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/class.pop3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/class.smtp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/codeworxtech.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/docs/extending.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/docs/faq.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/docs/pop3_article.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/docs/use_gmail.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/contents.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/pop3_before_smtp_test.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/test_gmail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/test_mail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/test_sendmail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/examples/test_smtp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-ar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-br.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-ca.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-cz.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-de.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-dk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-en.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-es.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-et.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-fi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-fo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-fr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-hu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-it.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-ja.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-nl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-no.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-pl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-ro.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-ru.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-se.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/language/phpmailer.lang-tr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/test/phpmailer_test.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/test/phpunit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/BKP/test_gmail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/PHPMailerAutoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/changelog.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/class.phpmailer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/class.phpmailer.phpBKP" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/class.pop3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/class.smtp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/Callback_function_notes.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/DomainKeys_notes.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/Note_for_SMTP_debugging.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/extending.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/faq.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/generatedocs.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/docs/pop3_article.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/LGPLv3.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/code_generator.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/contents.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/exceptions.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/gmail.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/mail.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/mailing_list.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/pop_before_smtp.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/scripts/XRegExp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/scripts/shAutoloader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/scripts/shBrushPhp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/scripts/shCore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/scripts/shLegacy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/sendmail.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/smtp.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/smtp_no_auth.phps" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCore.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreDefault.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreDjango.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreEclipse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreEmacs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreFadeToGrey.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreMDUltra.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreMidnight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shCoreRDark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeAppleScript.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeDefault.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeDjango.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeEclipse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeEmacs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeFadeToGrey.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeMDUltra.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeMidnight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeRDark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/examples/styles/shThemeVisualStudio.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/extras/EasyPeasyICS.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/extras/class.html2text.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/extras/htmlfilter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/extras/ntlm_sasl_client.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-be.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-br.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ca.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-cz.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-de.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-dk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-el.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-eo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-es.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-et.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-fa.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-fi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-fo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-fr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-gl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-he.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-hr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-hu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-it.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ja.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ka.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-lt.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-lv.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-nl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-no.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-pl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-pt.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ro.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-ru.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-se.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-sk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-tr.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-uk.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-vi.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-zh.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/language/phpmailer.lang-zh_cn.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/bootstrap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/fakepopserver.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/fakesendmail.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/phpmailerLangTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/phpmailerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/runfakepopserver.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/test_callback.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/test/testbootstrap-dist.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/phpMailer/travis.phpunit.xml.dist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/financeiro/email/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/.editorconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/.jshintignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/.jshintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/CONTRIBUTING.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/Gruntfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/ISSUE_TEMPLATE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/LICENSE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/PULL_REQUEST_TEMPLATE.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/component.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/css/select2.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/css/select2.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/km.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/sr-Cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/i18n/zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/select2.full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/select2.full.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/dist/js/select2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/basics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/data.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/disabled-mode.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/disabled-results.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/hide-search.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/localization-rtl-diacritics.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/matcher.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/multiple-max.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/placeholders.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/programmatic-control.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/tags.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/themes-templating-responsive-design.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/examples/tokenizer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/footer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/ga.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/head.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/js-source-states.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/nav/announcements-4.0.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/nav/examples.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/nav/options-old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/nav/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/navigation.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/notice-previous.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/adapters.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/backwards-compatibility.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/core-options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/dropdown.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options-old/setting-default-options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility/initial-selection.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility/introduction.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility/matcher.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility/query-function.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/compatibility/text-input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/core.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/core/amd-support.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/core/data-attributes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/core/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/data.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/data/ajax.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/data/array.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/data/select.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/dropdown.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/dropdown/filtering.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/dropdown/placement.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/dropdown/selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/dropdown/tagging.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/events.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/events/internal.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/events/jquery.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/introduction.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/not-written.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/selections/clearing-selections.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/selections/multiple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/selections/placeholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/options/selections/templating.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_includes/social-buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_layouts/default.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_layouts/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_alert.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_anchorjs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_code.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_dl-panels.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_examples.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_featurette.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_footer.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_hamburger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_home.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_jumbotron.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_nav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_prettify.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_result-repository.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_sidenav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_social.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_syntax-highlighting.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/_typography.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_alerts.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_badges.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_breadcrumbs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_button-groups.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_carousel.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_close.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_code.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_component-animations.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_dropdowns.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_glyphicons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_input-groups.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_jumbotron.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_labels.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_list-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_media.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_modals.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_navbar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_navs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_normalize.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_pager.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_pagination.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_panels.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_popovers.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_print.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_progress-bars.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_responsive-embed.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_responsive-utilities.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_scaffolding.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_tables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_theme.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_thumbnails.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_tooltip.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_type.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_utilities.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/_wells.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_alerts.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_background-variant.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_border-radius.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_buttons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_center-block.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_clearfix.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_forms.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_gradients.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_grid-framework.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_grid.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_hide-text.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_image.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_labels.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_list-group.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_nav-divider.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_nav-vertical-align.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_opacity.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_pagination.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_panels.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_progress-bar.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_reset-filter.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_reset-text.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_resize.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_responsive-visibility.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_size.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_tab-focus.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_table-row.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_text-emphasis.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_text-overflow.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/bootstrap/mixins/_vendor-prefixes.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_animated.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_bordered-pulled.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_fixed-width.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_larger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_path.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_rotated-flipped.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_stacked.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/_sass/vendor/font-awesome/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/announcements-4.0.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/browserconfig.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/community.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/css/bootstrap.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/css/font-awesome.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/css/s2-docs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/examples.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/manifest.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/images/safari-pinned-tab.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/options-old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/options.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/js/anchor.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/js/jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/js/placeholders.jquery.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/docs/vendor/js/prettify.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/select2.jquery.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/banner.end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/banner.start.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/jquery.mousewheel.shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/jquery.select2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/jquery.shim.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/containerCss.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/dropdownCss.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/initSelection.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/inputData.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/matcher.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/query.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/compat/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/core.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/ajax.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/array.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/maximumInputLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/maximumSelectionLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/minimumInputLength.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/select.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/tags.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/tokenizer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/defaults.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/diacritics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/attachBody.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/attachContainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/closeOnSelect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/hidePlaceholder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/infiniteScroll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/minimumResultsForSearch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/selectOnClose.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/dropdown/stopPropagation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/az.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ca.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/da.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/el.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/et.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/eu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/fa.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/gl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/he.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/hi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/hu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/id.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/is.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/km.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ko.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/lt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/lv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/nb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/pt-BR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ro.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/sr-Cyrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/sr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/sv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/th.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/tr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/uk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/vi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/i18n/zh-TW.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/keys.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/options.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/results.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/allowClear.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/base.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/clickMask.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/eventRelay.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/multiple.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/placeholder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/single.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/selection/stopPropagation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/translation.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/select2/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/wrapper.end.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/js/wrapper.start.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/_dropdown.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/mixins/_gradients.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/classic/_defaults.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/classic/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/classic/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/classic/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/default/_multiple.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/default/_single.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/src/scss/theme/default/layout.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/a11y/search-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/a11y/selection-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/array-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/base-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/inputData-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/maximumInputLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/maximumSelectionLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/minimumInputLength-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/select-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/tags-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/data/tokenizer-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/dropdown/dropdownCss-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/dropdown/positioning-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/dropdown/selectOnClose-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/dropdown/stopPropagation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/helpers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/integration.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/integration/dom-changes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/integration/jquery-calls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/integration/select2-methods.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/options/ajax-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/options/data-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/options/deprecated-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/options/translation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/options/width-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/results/focusing-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/allowClear-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/containerCss-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/multiple-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/placeholder-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/search-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/single-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/selection/stopPropagation-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/unit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/utils/decorator-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/utils/escapeMarkup-tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/vendor/jquery-1.7.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/vendor/qunit-1.23.1.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/tests/vendor/qunit-1.23.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/select2/vendor/jquery-2.1.0.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/geral.phtml" afterPath="$PROJECT_DIR$/application/layouts/geral.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Boleto.php" afterPath="$PROJECT_DIR$/application/models/Boleto.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/administracao/models/PessoaJuridica.php" afterPath="$PROJECT_DIR$/application/modules/administracao/models/PessoaJuridica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/financeiro/controllers/EmailController.php" afterPath="$PROJECT_DIR$/application/modules/financeiro/controllers/EmailController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/financeiro/controllers/ImportacaoController.php" afterPath="$PROJECT_DIR$/application/modules/financeiro/controllers/ImportacaoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/financeiro/controllers/MovimentacoesController.php" afterPath="$PROJECT_DIR$/application/modules/financeiro/controllers/MovimentacoesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/financeiro/views/scripts/email/index.phtml" afterPath="$PROJECT_DIR$/application/modules/financeiro/views/scripts/email/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/boletos.phtml" afterPath="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/boletos.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/email/index/index.js" afterPath="$PROJECT_DIR$/public/js/email/index/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/financeiro/movimentacoes/boletos.js" afterPath="$PROJECT_DIR$/public/js/financeiro/movimentacoes/boletos.js" />
+    </list>
+    <list id="be0f4710-3f44-4903-b4b4-aaaf0408380f" name="Failed commit: Default" comment="teste" />
+    <ignored path="sisscms.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="sisscms" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="EmailController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/EmailController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.6226416">
+              <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Boleto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Boleto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.461538">
+              <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovimentacoesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/MovimentacoesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0361445">
+              <caret line="83" column="94" selection-start-line="83" selection-start-column="82" selection-end-line="83" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportacaoController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/ImportacaoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9026549">
+              <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/scripts/email/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.207547">
+              <caret line="148" column="137" selection-start-line="148" selection-start-column="137" selection-end-line="148" selection-end-column="137" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/financeiro/email/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.296296">
+              <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="boletos.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/boletos.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.769231">
+              <caret line="31" column="26" selection-start-line="22" selection-start-column="20" selection-end-line="31" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Gilvan Junior" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/library/include/layout_cef.php" />
+        <option value="$PROJECT_DIR$/application/models/CentroCusto.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/controllers/CentrocustoController.php" />
+        <option value="$PROJECT_DIR$/public/js/financeiro/centrocusto/index.js" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/centrocusto/index.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/helpers/CentroCusto.php" />
+        <option value="$PROJECT_DIR$/application/models/Despesas.php" />
+        <option value="$PROJECT_DIR$/public/js/financeiro/movimentacoes/despesas.js" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/despesas.phtml" />
+        <option value="$PROJECT_DIR$/application/configs/const.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/gerar-boleto.phtml" />
+        <option value="$PROJECT_DIR$/library/include/funcoes_cef.php" />
+        <option value="$PROJECT_DIR$/library/correios/Rastreamento/CorreiosRastreamento.php" />
+        <option value="$PROJECT_DIR$/library/correios/Correios.php" />
+        <option value="$PROJECT_DIR$/library/Rastrear.php" />
+        <option value="$PROJECT_DIR$/public/js/financeiro/rastreamento/index.js" />
+        <option value="$PROJECT_DIR$/application/models/Rastreamento.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/rastreamento/index.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/controllers/RastreamentoController.php" />
+        <option value="$PROJECT_DIR$/application/modules/email/views/scripts/index/encaminhados.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/email/views/scripts/pagination/pagination.phtml" />
+        <option value="$PROJECT_DIR$/application/modules/email/views/helpers/Usuarios.php" />
+        <option value="$PROJECT_DIR$/application/modules/email/views/helpers/Usuarioscc.php" />
+        <option value="$PROJECT_DIR$/application/models/UsuarioEmail.php" />
+        <option value="$PROJECT_DIR$/application/models/EmailAnexo.php" />
+        <option value="$PROJECT_DIR$/application/models/EmailUsuario.php" />
+        <option value="$PROJECT_DIR$/application/models/Email.php" />
+        <option value="$PROJECT_DIR$/application/modules/administracao/controllers/AcompanhamentoController.php" />
+        <option value="$PROJECT_DIR$/library/Zend/Filter/File/Rename.php" />
+        <option value="$PROJECT_DIR$/application/modules/email/controllers/IndexController.php" />
+        <option value="$PROJECT_DIR$/application/layouts/mpdf.phtml" />
+        <option value="$PROJECT_DIR$/public/xml/relatorio.xml" />
+        <option value="$PROJECT_DIR$/library/phpjasperxml/class/PHPJasperXML.inc.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/gerar-pdf.phtml" />
+        <option value="$PROJECT_DIR$/application/Utils.php" />
+        <option value="$PROJECT_DIR$/library/InvoicePDF.php" />
+        <option value="$PROJECT_DIR$/application/modules/email/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/public/js/financeiro/movimentacoes/boletos.js" />
+        <option value="$PROJECT_DIR$/application/modules/administracao/models/PessoaJuridica.php" />
+        <option value="$PROJECT_DIR$/library/phpMailer/class.phpmailer.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/helpers/PessoaJuridica.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/application/layouts/geral.phtml" />
+        <option value="$PROJECT_DIR$/public/js/email/index/index.js" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/boletos.phtml" />
+        <option value="$PROJECT_DIR$/application/models/Boleto.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/views/scripts/email/index.phtml" />
+        <option value="$PROJECT_DIR$/public/js/financeiro/email/index.js" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/controllers/EmailController.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/controllers/MovimentacoesController.php" />
+        <option value="$PROJECT_DIR$/application/modules/financeiro/controllers/ImportacaoController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1360" />
+    <option name="height" value="728" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financeiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financeiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="movimentacoes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financeiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="email" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phpMailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financeiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financeiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sisscms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sisscm" />
+    <property name="SearchEverywhereHistoryKey" value="$arr&#9;null&#9;null" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="149" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="149" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="150" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="824" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="150" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="148" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="150" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="824" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\sisscms\public\js\financeiro\email" />
+      <recent name="C:\xampp\htdocs\sisscms\application\modules\email\views\helpers" />
+      <recent name="C:\xampp\htdocs\sisscms\library" />
+      <recent name="C:\xampp\htdocs\sisscms\application\modules\financeiro\views\helpers" />
+      <recent name="C:\xampp\htdocs\sisscms\public\plugins" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\sisscms\public\js\administracao" />
+      <recent name="C:\xampp\htdocs\sisscms\application\modules\administracao\views\scripts" />
+      <recent name="C:\xampp\htdocs\sisscms\application\modules\administracao\controllers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ab565243-7a6f-418d-a459-ccec8bdbff9c" name="Default" comment="" />
+      <created>1468387216541</created>
+      <option name="number" value="Default" />
+      <updated>1468387216541</updated>
+    </task>
+    <task id="LOCAL-00001" summary="teste">
+      <created>1471581741255</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1471581741255</updated>
+    </task>
+    <task id="LOCAL-00002" summary="teste">
+      <created>1471581831098</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1471581831098</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Atualizações">
+      <created>1473185065108</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1473185065108</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1360" height="728" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22916667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31825525" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279483" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="teste" />
+    <MESSAGE value="Atualizações" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizações" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/Utils.php</url>
+          <line>314</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/modules/email/views/helpers/Usuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8867924">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/EmailUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42829457">
+          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/EmailAnexo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39534885">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4867076">
+          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Zend/File/Transfer/Adapter/Abstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3488372">
+          <caret line="942" column="20" selection-start-line="942" selection-start-column="20" selection-end-line="942" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Zend/Filter/File/Rename.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42300886">
+          <caret line="143" column="44" selection-start-line="143" selection-start-column="44" selection-end-line="143" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/controllers/AcompanhamentoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="28" column="103" selection-start-line="27" selection-start-column="16" selection-end-line="28" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/email/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64684016">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/html2pdf-4.5.1/html2pdf.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/html2pdf-4.5.1/test/generate.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/xml/relatorio.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4350394">
+          <caret line="219" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/phpjasperxml/class/PHPJasperXML.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4973452">
+          <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/layouts/mpdf.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06017699">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="9" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/gerar-pdf.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37918216">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/phpjasperxml/class/oldfile/PHPJasperXML2.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33267716">
+          <caret line="404" column="17" selection-start-line="404" selection-start-column="14" selection-end-line="404" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/imagens/logo_empresa.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Utils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.679646">
+          <caret line="633" column="16" selection-start-line="633" selection-start-column="9" selection-end-line="633" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/InvoicePDF.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4015748">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/email/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33267716">
+          <caret line="542" column="104" selection-start-line="542" selection-start-column="93" selection-end-line="542" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/plugins/select2/src/js/select2/data/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/helpers/Cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/financeiro/movimentacoes/boletos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="43" selection-start-line="17" selection-start-column="4" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/phpMailer/BKP/docs/faq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/BancoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="63" column="49" selection-start-line="61" selection-start-column="12" selection-end-line="63" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/cnae/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/contrato/gerar.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/contrato/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.978761">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/index/cadastro.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5415929">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/index/editar.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/crea/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12743363">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/controllers/CreaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.346153">
+          <caret line="93" column="82" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/phpMailer/class.phpmailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8072289">
+          <caret line="1263" column="36" selection-start-line="1263" selection-start-column="33" selection-end-line="1263" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/email/views/helpers/PessoaJuridica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/models/PessoaJuridica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34867257">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/models/PessoaJuridica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/administracao/controllers/ClientesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.307692">
+          <caret line="582" column="34" selection-start-line="582" selection-start-column="34" selection-end-line="582" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69911504">
+          <caret line="83" column="50" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/configs/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9492386">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/layouts/geral.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264032">
+          <caret line="428" column="91" selection-start-line="428" selection-start-column="90" selection-end-line="428" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/phpMailer/BKP/class.phpmailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33267716">
+          <caret line="369" column="8" selection-start-line="369" selection-start-column="7" selection-end-line="369" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/ContratoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_9.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0690265">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/email/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5972927">
+          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/scripts/movimentacoes/boletos.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="31" column="26" selection-start-line="22" selection-start-column="20" selection-end-line="31" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Boleto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.461538">
+          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/views/scripts/email/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.207547">
+          <caret line="148" column="137" selection-start-line="148" selection-start-column="137" selection-end-line="148" selection-end-column="137" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/financeiro/email/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.296296">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/EmailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6226416">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/MovimentacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0361445">
+          <caret line="83" column="94" selection-start-line="83" selection-start-column="82" selection-end-line="83" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/financeiro/controllers/ImportacaoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9026549">
+          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

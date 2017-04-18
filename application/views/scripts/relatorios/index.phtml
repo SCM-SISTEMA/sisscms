@@ -1,0 +1,88 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/relatorios/index.js')?>	
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: Relatórios ::.</h3>
+	</div>
+</div>
+<form class="form-search" id="formChamado" name="formChamado" method="post">
+	<fieldset>
+		<legend>Filtros</legend>
+		<div class="row-fluid">
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Protocolo: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<input type="text" class="span4" maxlength="14" style="width: 120px;">
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Período: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-5">
+					<input type="text" class="span4" maxlength="14" style="width: 120px;">
+					<span> à </span>
+					<input type="text" class="span4" maxlength="14" style="width: 120px;">
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Categoria: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<?php echo $this->Categoria();?>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Problema: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<?php echo $this->Problema();?>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Status: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<?php echo $this->Status();?>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Tipo: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<input name="tipo" type="radio"> Provedor &nbsp;
+					<input name="tipo" type="radio"> Atendente &nbsp;
+					<input name="tipo" type="radio"> Usuário &nbsp;
+					<input name="tipo" type="radio"> Chamados/Hora
+				</div>
+			</div>
+			<div class="form-group">
+				<div align="right" class="col-lg-10 col-lg-offset-2">
+					<button class="btn btn-primary" type="submit">Selecionar</button>
+					<button class="btn btn-primary" type="submit">Gerar PDF</button>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	
+</form>
+<div id="modal_provedor" class="modal hide fade" id="confirm-dialog">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">x</a>
+		<h3>Provedor</h3>
+	</div>
+	<div class="modal-body"><?php echo $this->Provedor();?></div>
+	<div class="modal-footer">
+		<a style="cursor: pointer" onclick="deletar()" class="btn btn-danger">Ok</a> 
+		<a style="cursor: pointer"	class="btn btn-cancel" data-dismiss="modal">Cancelar</a>
+	</div>
+</div>
+<div id="modal_atendente" class="modal hide fade" id="confirm-dialog">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">x</a>
+		<h3>Confirmar</h3>
+	</div>
+	<div class="modal-body">Deseja deletar este registro?<input type="hidden" id="co_modal"></div>
+	<div class="modal-footer">
+		<a style="cursor: pointer" onclick="deletar()" class="btn btn-danger">Ok</a> 
+		<a style="cursor: pointer"	class="btn btn-cancel" data-dismiss="modal">Cancelar</a>
+	</div>
+</div>

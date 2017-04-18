@@ -1,0 +1,116 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/chamados/editar.js')?>	
+<style>
+.modal {
+  left:35%;
+  width:900px;
+  margin-left:-222px;
+}
+</style>
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: Chamados ::.</h3>
+	</div>
+</div>
+<div class="well bs-component">
+		<fieldset>
+			<legend>Visualizar</legend>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail"><b>Provedor: </b></label>
+				<div class="col-lg-10">
+					<?php echo $this->provedor->nome;?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<b>Cliente: </b>
+				<?php echo $this->cliente->nome?><br>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Protocolo:</b>
+					<?php echo $this->chamado->protocolo?>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Proprietário:</b>
+					
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Data/hora:</b>
+					<?php echo retornaDmy( $this->chamado->data );?> / <?php echo $this->chamado->hora;?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Categoria:</b>
+					<?php echo $this->categoria->titulo?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Status: </b>
+					<?php echo $this->status->titulo;?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<b>Problema Informado:</b>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<?php echo $this->chamado->prob_info?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<b>Problema Constatado:</b>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<?php echo $this->chamado->prob_const?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<b>Agendamento:</b>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<?php echo $this->chamado->agendamento?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<b>Observações:</b>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<?php echo $this->chamado->obs?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<b>Enviar para E-mails : </b>
+					<?php echo $this->chamado->emails?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+		</fieldset>
+	<div class="modal hide fade modal-lg" id="modal_recentes" >
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Chamados Recentes</h3>
+		</div>
+		<div id="recentes_conteudo" class="modal-body"></div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Fechar</a>
+		</div>
+	</div>

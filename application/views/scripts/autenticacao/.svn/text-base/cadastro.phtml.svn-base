@@ -1,0 +1,25 @@
+<?php $this->headScript()->appendFile(Zend_Registry::get('config')->caminho->componente.'scripts/masked-input.js');?>
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/autenticacao/cadastro.js')?>
+
+<h1>Cadastro de usuários</h1>
+
+<form action="" name="FormUsuario" method="post" class="form">
+	<div class="grid-3-12">
+		<label class="form-lbl">CPF:</label>
+		<input type="text" name="nu_cpf" id="nu_cpf" class="form-txt" value="<?php echo $this->nu_cpf;?>" onblur="javascript: verificaCpf(this);">
+	</div>
+	
+	<div class="grid-9-12">
+		<label class="form-lbl">Nome:</label>
+		<input type="text" name="no_usuario" id="no_usuario" class="form-txt" maxlength="200" value="<?php echo $this->no_usuario;?>" onblur="javascript: this.value = this.value.toUpperCase();">
+	</div>
+	
+	<div class="grid-10-12">
+		<label class="form-lbl">E-mail:</label>
+		<input type="text" name="ds_email" id="ds_email" class="form-txt" maxlength="100" value="<?php echo $this->ds_email;?>" onblur="javascript: verificarEmail(this);">
+	</div>
+	
+	<div class="grid-2-12 form-no-lbl">
+		<input type="button" class="form-button" value="Salvar" onclick="javascript: salvar();">
+	</div>
+</form>

@@ -1,0 +1,252 @@
+<?php
+/**
+ *
+ *
+ * Layout principal do sistema.
+ *
+ * @author      GILVAN ALVES DE MELO JUNIOR
+ * @copyright   Copyright (c) 2010,
+ * @package
+ * @since       Arquivo disponível desde a versão 1.0
+ * @version     $Id$
+ */
+
+$controller = Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex,follow" />
+
+<title><?= Zend_Registry::get('config')->sistema->sigla?></title>
+<!-- 
+		<link rel="shortcut icon" href="<?=Zend_Registry::get('config')->caminho->componente;?>images/-icone.ico"/>
+		<link rel="icon" type="image/x-icon" href="<?=Zend_Registry::get('config')->caminho->componente;?>images/-icone.ico"/>
+		-->
+<script src="<?=$this->baseUrl().'/bootstrap/js/jquery.js'?>"></script>
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/datepicker.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap-datetimepicker.min.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap.lightbox.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap-responsive.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/docs.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/js/google-code-prettify/prettify.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap-fileupload.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/bootstrap-multiselect.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/tablecloth.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet"
+	href="<?=Zend_Registry::get('config')->caminho->componente."bootstrap/css/prettify.css";?>"
+	type="text/css" media="screen" charset="utf-8" />
+<script src="<?=$this->baseUrl().'/tinymce/tinymce.min.js'?>"></script>
+
+<?php echo $this->headLink(), PHP_EOL; ?>
+
+<script type="text/javascript">var sistemaUrl = "<?=Zend_Registry::get('config')->sistema->url;?>";</script>
+<style>
+label.valid {
+	width: 24px;
+	height: 24px;
+	background: url(<?= Zend_Registry :: get('config')->caminho->componente.
+		"bootstrap/img/valid.png"?>) center center no-repeat;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+label.error {
+	font-weight: bold;
+	color: red;
+	padding: 2px 8px;
+	margin-top: 2px;
+}
+</style>
+<?php echo $this->headScript(), PHP_EOL; ?>
+</head>
+<body>
+
+
+	<!-- Navbar
+    ================================================== -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button data-target=".nav-collapse" data-toggle="collapse"
+					class="btn btn-navbar" type="button">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<?php
+				if(Zend_Auth::getInstance()->getIdentity()) {
+					echo '<a  class="brand" href="'.$this->baseUrl().'/autenticacao/logout">Sair</a>';
+					echo '<a  class="brand" href="'.$this->baseUrl().'/atendente/pausar">Pausar Atendimento</a>';
+				} else {
+					//echo '<a href="'.Zend_Registry::get('config')->scaweb->url.'"><img src="'.Zend_Registry::get('config')->caminho->componente.'images/barra-btn-login.png"/>acessar</a>';
+					echo '<a  class="brand" href="'.$this->baseUrl().'/autenticacao/index">Acessar</a>';
+				}
+				?>
+			</div>
+		</div>
+	</div>
+
+	<!-- Subhead
+================================================== -->
+	<header id="overview" class="jumbotron subhead">
+	<div class="container">
+		<img style="padding: 5px; border: solid 2px #FFF" alt=""
+			src="<?=Zend_Registry::get('config')->caminho->componente?>/images/logo_scm.jpg">
+	</div>
+	</header>
+	<?php if(Zend_Auth::getInstance()->getIdentity()) :
+	$user = Zend_Auth::getInstance()->getIdentity();
+	?>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Bem-vindo <span><?php echo $user['user']->ds_login?>
+			</span>
+			</a> <a class="brand" style="float: left" href="#">SGS - Sistema de
+				Gestão de Serviços.</a>
+		</div>
+	</div>
+	<?php endif;?>
+	<?php if(Zend_Auth::getInstance()->getIdentity()) : ?>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"> CallCenter </a>
+						</div>
+						<div id="collapseOne" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class="dropdown-menu" role="menu"
+									aria-labelledby="dropdownMenu">
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>chamados/index">Chamados</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>gravacoes/index">Gravações</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>categoria/index">Categorias</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>provedor/index">Provedores</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>cliente/index">Cliente</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>usuario/index">Usuários</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>perfil/index">Perfis e Permissões</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>relatorios/index">Relatórios</a></li>
+									<li class="divider"></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>importacao/index">Importação de dados</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>backup/index">Backup da Base</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"> PQS </a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class="dropdown-menu" role="menu"
+									aria-labelledby="dropdownMenu">
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>chamados/index">Questionario</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>gravacoes/index">Formulario</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>categoria/index">Relatorio	PQS</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"> FINANCEIRO </a>
+						</div>
+						<div id="collapseThree" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class="dropdown-menu" role="menu"
+									aria-labelledby="dropdownMenu">
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>financeiro/contrato/index">Contratos</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>financeiro/movimentacoes/index">Movimentação</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>financeiro/banco/index">Banco</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>financeiro/relatorio/index">Relatórios</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour"> ADMINISTRATIVO </a>
+						</div>
+						<div id="collapseFour" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class="dropdown-menu" role="menu"
+									aria-labelledby="dropdownMenu">
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/cliente/index">Clientes</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/cnae/index">CNAE</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/crea/index">CREA</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/servicos/index">Serviços</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/contrato/index">Contratos</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/status/index">Status</a></li>
+									<li><a tabindex="-1" href="<?=Zend_Registry::get('config')->caminho->componente?>administracao/acompanhamento/index">Acompanhamento</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span10">
+				<div id="dialog-mensagem"></div>
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+	</div>
+	<?php else : ?>
+	<div class="span12">
+		<div id="dialog-mensagem"></div>
+		<?php echo $this->layout()->content; ?>
+	</div>
+	<?php endif;?>
+	<div id="rodape">
+		<span class="R_esquerda"><br /> </span> <span class="R_direita"></span>
+	</div>
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/bootstrap.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap-datepicker.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap-datetimepicker.min.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap-fileupload.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap.file-input.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap-multiselect.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/jquery.tablecloth.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/jquery.tablesorter.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/jquery.tablesorter.min.js'?>"></script>
+	<script	src="<?=$this->baseUrl().'/bootstrap/js/bootstrap-wysiwyg.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/jquery-validate.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/jquery-validate.bootstrap.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/jquery-validate.bootstrap-tooltip.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/jquery.inputmask.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/bootbox.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/bootbox.min.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/bootstrap.lightbox.js'?>"></script>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/prettify.js'?>"></script>
+	<script src="<?=$this->baseUrl()."/scripts/geral.js";?>" type="text/javascript" language="javascript" charset="utf-8"></script>
+	<script src="<?=$this->baseUrl()."/scripts/priceFormat.js";?>" type="text/javascript" language="javascript" charset="utf-8"></script>
+</body>
+</html>

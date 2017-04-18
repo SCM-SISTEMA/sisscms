@@ -1,0 +1,149 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/chamados/editar.js')?>	
+<style>
+.modal {
+  left:35%;
+  width:900px;
+  margin-left:-222px;
+}
+</style>
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: Chamados ::.</h3>
+	</div>
+</div>
+<div class="well bs-component">
+	<form name="frmAbrirChamado" id="frmAbrirChamado" class="form-horizontal" method="post"  action="">
+		<fieldset>
+			<legend>Editar</legend>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputEmail">Provedor: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<?php echo $this->provedor($this->chamado->id_provedor, 'required=""');?>
+					<input type="hidden" name="id_chamado" id="id_chamado" value="<?php echo $this->chamado->id ?>">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Cliente: <span style="color:red">*&nbsp;</span></label>
+				<div class="col-lg-10">
+					<?php echo $this->cliente($this->chamado->id_cliente,$this->chamado->id_provedor, 'required=""');?>
+					<button id="btnRecentes" class="btn btn-primary" type="button">Chamados recentes</button>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="protocolo">Protocolo: </label>
+				<div class="col-lg-10">
+					<input type="text" name="protocolo" id="protocolo" readonly="readonly" value="<?php echo $this->chamado->protocolo?>">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="proprietario">Proprietário: </label>
+				<div class="col-lg-10">
+					<input name="proprietario" id="proprietario" type="checkbox" value="1">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="data">Data/hora: </label>
+				<div class="col-lg-10">
+					<input type="text" name="data" id="data" readonly="readonly" value="<?php echo retornaDmy( $this->chamado->data );?>">
+					<input type="text" name="hora" id="hora" readonly="readonly" value="<?php echo $this->chamado->hora;?>">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="categoria">Categoria: <span style="color:red">*&nbsp;</span> </label>
+				<div class="col-lg-10">
+					<?php echo $this->categoria($this->chamado->id_categoria, 'required=""')?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="status">Status: <span style="color:red">*&nbsp;</span></label>
+				<div class="col-lg-10">
+					<?php echo $this->status($this->chamado->status, 'required=""')?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Problema Informado:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="prob_info" name="prob_info" rows="3" class="form-control">
+						<?php echo $this->chamado->prob_info?>
+					</textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Problema Constatado:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="prob_const" name="prob_const"  rows="3" class="form-control">
+						<?php echo $this->chamado->prob_const?>
+					</textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Agendamento:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="agendamento" name="agendamento" rows="3" class="form-control">
+						<?php echo $this->chamado->agendamento?>
+					</textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<span>Observações:</span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-10">
+					<textarea id="observacoes" name="observacoes" rows="3" class="form-control">
+						<?php echo $this->chamado->obs?>
+					</textarea>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label" for="inputPassword">Enviar para E-mails : </label>
+				<div class="col-lg-10">
+					<input type="text" name="emails" id="emails" value="<?php echo $this->chamado->emails?>">
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="form-group">
+				<div class="col-lg-10 col-lg-offset-2">
+					<button class="btn btn-default">Cancelar</button>
+					<button class="btn btn-primary" type="submit">Salvar</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<div class="modal hide fade modal-lg" id="modal_recentes" >
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Chamados Recentes</h3>
+		</div>
+		<div id="recentes_conteudo" class="modal-body"></div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Fechar</a>
+		</div>
+	</div>
+	
+<div id="modal_excluir" class="modal hide fade" id="confirm-dialog">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">x</a>
+		<h3>Confirmar</h3>
+	</div>
+	<div class="modal-body">Deseja deletar este registro?<input type="hidden" id="co_modal"></div>
+	<div class="modal-footer">
+		<a style="cursor: pointer" onclick="deletar()" class="btn btn-danger">Ok</a> 
+		<a style="cursor: pointer"	class="btn btn-cancel" data-dismiss="modal">Cancelar</a>
+	</div>
+</div>

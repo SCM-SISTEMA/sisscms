@@ -1,0 +1,19 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/administracao/contrato/gerar-contrato.js" type="text/javascript"></script>
+<style>
+.dropdown-menu{
+	float: none;l
+}
+</style>	
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: CONTRATO <?php echo $this->arrContrato['co_contrato']?> ::.
+			<button style="float: right;margin-right: 10px;" class="btn btn-success" type="button" id="btnImprimir"><img src="<?=Zend_Registry::get('config')->caminho->componente.'images/print.png'?>"> <b>Imprimir</b></button> &nbsp;&nbsp;
+			<button style="float: right;margin-right: 10px;" class="btn btn-success" type="button" id="btnImprimir"><img src="<?=Zend_Registry::get('config')->caminho->componente.'images/print.png'?>"> <b>Gerar PDF</b></button> &nbsp;&nbsp;
+			<button style="float: right;margin-right: 10px;" class="btn btn-success" type="button" id="btnImprimir"><img src="<?=Zend_Registry::get('config')->caminho->componente.'images/print.png'?>"> <b>Enviar por E-mail</b></button> &nbsp;&nbsp;
+		</h3>
+	</div>
+	
+</div>
+<div id="conteudo">
+	<?php echo $this->dados['ds_contrato'];?>
+</div>

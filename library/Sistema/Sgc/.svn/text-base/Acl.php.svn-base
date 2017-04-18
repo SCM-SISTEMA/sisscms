@@ -1,0 +1,130 @@
+<?php
+/**
+ * DATASUS - ESQUELETO PADR�O DE SISTEMAS DO DATASUS
+ *
+ * Descri��o do arquivo (opcional).
+ *
+ * @author      Felipe Calland de Ara�jo Rosa <felipe.rosa@saude.gov.br>
+ * @copyright   Copyright (c) 2010, DATASUS
+ * @package     Datasus_Siarh_
+ * @since       Arquivo dispon�vel desde a vers�o 1.0
+ * @version     $Id$
+ */
+
+/**
+ * Datasus_Siarh_Acl class
+ * ACL pattern implementa��o
+ *
+ * Classe respons�vel por setar as regras seguran�a do sistema, e gerar
+ * um array para ser utilizado pelo Zend_Navigator.
+ *
+ * @author      Felipe Calland de Ara�jo Rosa <felipe.rosa@saude.gov.br>
+ * @author      Marcio Paiva Barbosa <marcio.barbosa@saude.gov.br>
+ * @since       Arquivo dispon�vel desde a vers�o 1.0
+ */
+
+Class Datasus_Siarh_Acl extends Zend_Acl {
+
+    /**
+     * Singleton instance
+     *
+     * @var Datasus_Scaweb_Acl
+     */    
+    protected static $_instance = null;
+
+    /**
+     * Retorna a inst�ncia Datasus_Scaweb_Acl
+     * Singleton pattern implementa��o
+     *
+     * @return Datasus_Scaweb_Acl Uma abstra��o do Zend_Acl
+     */
+    public static function getInstance() {
+        if( self::$_instance === null ) {
+            self::$_instance = new Datasus_Siarh_Acl(
+                Zend_Auth::getInstance()
+                    ->setStorage(new Zend_Auth_Storage_Session(
+                        Zend_Registry::get('config')->sistema->sigla)
+                    )
+            );
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * M�todo construtor da classe
+     * Singleton pattern implementa��o
+     *
+     * @param Zend_Auth $auth Aguarda uma inst�ncia do Zend_Auth
+     * @return Zend_Registry Uma inst�ncia do Zend_Registry 'arrNavegacao'
+     */
+    public function __construct($auth) {
+	    // Array provento da autentica��o realizada
+    	$arrAutenticacao = $auth->getStorage()->read();
+	    if($auth->getIdentity()) {
+	        
+	    	if($arrAutenticacao['perfil']['estagiario']){
+	    		//Definindo perfil
+	    		$this->addRole($arrAutenticacao['perfil']['perfil']);
+		        
+	    		//Mapeando funcionalidades
+	    		$this->addResource('autenticacao');
+		        $this->addResource('inscricao');
+		       
+		        //Definindo acesso as funcionalidades
+				//Perfil  - estagiario acesso tudo
+		        $this->allow($arrAutenticacao['perfil']['perfil'],'autenticacao','logout');
+			    $this->allow($arrAutenticacao['perfil']['perfil'],'inscricao','alterardados');
+			   
+	    	}else{
+	            // Atribuindo o perfil vindo do scaweb
+	            $role = $arrAutenticacao['perfil']['perfil'];
+	            $this->addRole($role);
+	
+	            // Atribui��o de permiss�es de controllers de forma din�mica, com base no ScaWeb
+	            $arrNav = array();
+	            $co_modulo_funcionalidade = "";
+	            foreach ($arrAutenticacao['menu'] as $PerfilFuncionalidade) {
+	            	$pos = strpos($PerfilFuncionalidade['DS_CAMINHO_FUNCIONALIDADE'],"/",1);
+		            $controller = substr($PerfilFuncionalidade['DS_CAMINHO_FUNCIONALIDADE'],1,$pos-1);
+		            $action = substr($PerfilFuncionalidade['DS_CAMINHO_FUNCIONALIDADE'],$pos+1);
+	            	
+	                // Controles da ACL com base nos links registrados no SCAWeb
+					if(!is_numeric(array_search($controller,$this->getResources()))) {
+						// Atribuindo os controles
+						$this->addResource($controller);
+					}
+					
+					// Atribuindo permiss�o dos controllers e actions para o perfil autenticado
+					$this->allow($role,$controller,$action);
+	
+					// Controle para montagem do menu de navega��o
+					if($co_modulo_funcionalidade != $PerfilFuncionalidade['CO_SEQ_MODULO_FUNCIONALIDADE']) {
+						$co_modulo_funcionalidade = $PerfilFuncionalidade['CO_SEQ_MODULO_FUNCIONALIDADE'];
+						
+						$arrPages = array();
+						foreach ($arrAutenticacao['menu'] as $PerfilFuncionalidadeMenu) {
+							if($PerfilFuncionalidadeMenu['CO_SEQ_MODULO_FUNCIONALIDADE'] == $co_modulo_funcionalidade && $PerfilFuncionalidadeMenu['ST_VISUALIZA_FUNCIONALIDADE'] == "S") {
+								$arrPages[] = array(
+									"label" => $PerfilFuncionalidadeMenu['SG_FUNCIONALIDADE'],
+									"class" => "qmparent",
+									"uri"	=> $PerfilFuncionalidadeMenu['DS_CAMINHO_FUNCIONALIDADE']
+								);
+							}
+						}
+						if($arrPages) {
+							$arrNav[] = array(
+								"label" => $PerfilFuncionalidade['SG_MODULO_FUNCIONALIDADE'],
+								"class" => "qmparent",
+								"uri" => "javascript:void(0)",
+								"pages" => $arrPages
+							);
+						}
+					}
+	            }
+	
+	            Zend_Registry::getInstance()->set("arrNavegacao",$arrNav);
+	        }
+		   
+	    }
+    }
+}

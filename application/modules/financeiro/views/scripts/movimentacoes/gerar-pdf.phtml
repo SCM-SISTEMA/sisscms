@@ -1,0 +1,43 @@
+
+				<table id="table" border="1px">
+					<thead>
+						<tr>
+							<th>Número</th>
+							<th>Cliente</th>
+							<th>Nosso Número</th>
+							<th>Valor</th>
+							<th>Dt Vencimento</th>
+							<th>Dt Pagamento</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+					if( count($this->paginator ) ):
+						foreach ($this->paginator as $boleto) :
+					?>
+						<tr>
+							<td><?php echo $boleto['nu_documento']?></td>
+							<td><?php echo limitarTexto($boleto['no_razao_social'], 50)?></td>
+							<td><?php echo $boleto['nu_nosso_numero']?></td>
+							<td><?php echo 'R$ '.moeda( $boleto['ds_valor'] )?></td>
+							<td>
+								<?php
+									if(  $boleto['dt_vencimento'] < Zend_Date::now()->toString("Y-MM-d") && empty($boleto['dt_pagamento']) )	:
+										echo '<span title="Vencido" class="btn-danger badge">'.retornaDmy( $boleto['dt_vencimento'] ).'</span>';
+									elseif( $boleto['dt_vencimento'] >= Zend_Date::now()->toString("Y-MM-d") && $boleto['dt_vencimento'] <= Zend_Date::now()->addDay(2)->toString("Y-MM-d") && empty($boleto['dt_pagamento']) ):
+										echo '<span title="Vencendo" class="btn-warning badge">'.retornaDmy( $boleto['dt_vencimento'] ).'</span>';
+									else:
+										echo retornaDmy( $boleto['dt_vencimento'] );
+									endif;
+								?>
+							</td>
+							<td><?php echo retornaDmy( $boleto['dt_pagamento'] ) ?></td>
+						</tr>
+					<?php endforeach;?>
+					<?php else:?>
+						<tr class="alert alert-block alert-error fade in">
+							<td colspan="7"><div align="center">Nenhum resultado encontrado!</div></td>
+						</tr>
+					<?php endif;?>
+					</tbody>
+				</table>

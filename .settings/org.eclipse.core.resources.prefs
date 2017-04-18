@@ -1,0 +1,16 @@
+#Tue Mar 24 23:42:09 BRT 2015
+eclipse.preferences.version=1
+encoding//application/configs/const.php=ISO-8859-1
+encoding//application/layouts/geral.phtml=UTF-8
+encoding//application/modules/financeiro/views/scripts/contrato/gerar-boleto.phtml=ISO-8859-1
+encoding//application/views/scripts/chamados/CopyOfindex.phtml=UTF-8
+encoding//application/views/scripts/chamados/abrir.phtml=UTF-8
+encoding//application/views/scripts/chamados/editar.phtml=UTF-8
+encoding//application/views/scripts/chamados/index.phtml=UTF-8
+encoding//application/views/scripts/chamados/recentes.phtml=UTF-8
+encoding//application/views/scripts/chamados/visualizar.phtml=UTF-8
+encoding//application/views/scripts/pagination/pagination.phtml=UTF-8
+encoding//library/include/layout_cef.php=ISO-8859-1
+encoding//public/js/chamados/abrir.js=UTF-8
+encoding//public/js/chamados/index.js=UTF-8
+encoding/<project>=UTF-8

@@ -1,0 +1,40 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/administracao/contrato/gerar-contrato.js')?>
+<?php $this->headScript()->appendFile($this->baseUrl().'/scripts/jquery.printElement.js')?>
+<?php $this->headScript()->appendFile($this->baseUrl().'/bootstrap/js/jquery.browser.js'); 	?>
+
+<style>
+.modal {
+	width: 800px;
+	left: 40%;
+}
+.dropdown-menu{
+	float: none;l
+}
+</style>	
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: CONTRATO <?php echo $this->arrContrato['co_contrato']?> ::.
+			<button style="float: right;margin-right: 10px;" class="btn btn-success" type="button" id="btnImprimir"><img src="<?=Zend_Registry::get('config')->caminho->componente.'images/print.png'?>"> <b>Imprimir</b></button> &nbsp;&nbsp;
+		</h3>
+	</div>
+	
+</div>
+<div id="conteudo">
+	<?php 	
+		switch( $this->dados['tipoContrato'] ):
+			case 1:
+				echo $this->contratoscm( $this->dados ); 
+			break;
+			case 2:
+				echo $this->contratoconsultoria( $this->dados );
+			break;
+			case 6:
+				echo $this->contratocallcenterreceptivo( $this->dados );
+			break;
+			case 7:
+				echo $this->contratocallcenterativo( $this->dados );
+			break;
+		endswitch;
+	
+	?>
+</div>

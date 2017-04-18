@@ -1,0 +1,44 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/administracao/servicos/index.js')?>
+<style>
+.modal {
+	width: 800px;
+	left: 40%;
+}
+</style>	
+<script>
+$("#tableClausulas").tablecloth({
+	theme: "stats",
+	bordered: true,
+	condensed: true,
+	striped: true,
+	sortable: true,
+	clean: true,
+});
+</script>
+<table id="tableClausulas" class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Cláusula</th>
+			<th>Data de Cadastro</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php 
+	if( count($this->clausulas) ):
+		foreach ($this->clausulas as $clausula) : 
+	?>
+		<tr>
+			<td><?php echo $clausula['co_clausula']?></td>
+			<td><?php echo $clausula['ds_clausula'] ?></td>
+			<td><?php echo retornaDmy( $clausula['dt_cadastro'] ) ?></td>
+		</tr>
+	<?php endforeach;
+	else :
+	?>
+		<tr class="alert alert-block alert-error fade in">
+			<td colspan="7"><div align="center">Nenhum resultado encontrado!</div></td>
+		</tr>
+	<?php endif;?>
+	</tbody>
+</table>

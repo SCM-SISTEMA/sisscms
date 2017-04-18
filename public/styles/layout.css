@@ -1,0 +1,53 @@
+/**
+ * 
+ *
+ * Arquivo de estilos do sistema.
+ *
+ * @author      GILVAN ALVES DE MELO JUNIOR
+ * @copyright   Copyright (c) 2010, 
+ * @package     
+ * @since       Arquivo disponível desde a versão 1.0
+ * @version     $Id$
+ */
+
+body { font: normal 0.75em Calibri, Verdana, Arial; background-color: #fff; color: #000000;}
+
+#geral {margin: 5px 10px 0px 10px; min-width:770px; }
+
+#barraLaranja { background: url(../images/governo-barra.png); width:auto; height:13px; }
+
+#barraSistemaSup { float: inherit; height:62px; background-color:#CC0001; padding: 0px 10px 0px 10px;}
+#barraSistemaSup span.sigla { float: left; font-weight: bold; font-size: 2.8em; color: #fff;  text-transform:uppercase; text-shadow: black 0.1em 0.1em 0.2em}
+#barraSistemaInf { float: inherit; height:30px; background-color:#CC0001; padding: 0px 10px 0px 10px;}
+#barraSistemaInf span.descricao {float: left; font-weight: bold; font-size: 1em; color: #fff; text-shadow: 1px 1px 1px #000}
+
+#detalheUsuario { float: right; text-transform: capitalize; color: #fff; text-shadow: 1px 1px 1px #000}
+
+#menuRapido { float: right; text-transform: lowercase; margin-top: 10px;}
+#menuRapido img { vertical-align: middle; }
+#menuRapido a {color:#fff; text-decoration:none; cursor: pointer; }
+#menuRapido a:link { text-decoration:none;}
+#menuRapido a:visited { text-decoration:none;}
+#menuRapido a:active { text-decoration:none;}
+#menuRapido a:hover { text-decoration:none;}
+
+
+#barraMenu { width: 100%; background: #000; height:1.7em; display: inline-block; border-top: 1px solid #fff;}
+#barraMenu span.M_esquerda { float: left; }
+#barraMenu span.M_direita { float: right; padding: 3px 10px 0px 10px; color: #fff;}
+
+#conteudoImagexxxx { background: url(../images/sombra.png) repeat-y center center; overflow:hidden;}
+#conteudoMeio {width: 80%; min-height:300px; padding: 10px; text-align: left }
+#conteudoFull {width: auto; min-width:760px; min-height:300px; padding: 10px; text-align: left }
+
+#rodape {float: inherit; height:50px; background: url(../images/rodape.png) repeat-x; color: #fff; padding-left: 30px; padding-top: 5px; vertical-align: bottom}
+#rodape span.R_esquerda img {float:left; background-color: red}
+#rodape span.R_direita{float:right; text-align: right; margin-right: 180px;}
+
+#breadcrumb { background: url('../images/bread-background.png') repeat-x; height:30px; line-height:30px; color:#9b9b9b; border:solid 1px #cacaca; overflow:hidden; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 1px #fff}
+#breadcrumb li { list-style-type:none; float:left; padding-left:10px; }
+#breadcrumb a, #breadcrumb span{ height:30px; display:block; background:url('../images/bread-separador.png') no-repeat right; padding-right: 15px; text-decoration: none; color:#454545; }
+#breadcrumb a:hover { color:#35acc5; }
+
+#formulario fieldset { border: 1px solid #cacaca; margin-bottom: 10px; }
+#formulario fieldset legend { font: bolder 1.2em Calibri, Verdana, Arial; color:#9b9b9b; padding: 3px; text-transform: uppercase}

@@ -1,0 +1,34 @@
+<h1>Acesso ao Sistema</h1>
+
+<?php if(!Zend_Auth::getInstance()->getIdentity()) { ?>
+	<?php $this->headScript()->appendFile($this->baseUrl().'/js/autenticacao/index.js')?>	
+	<?php $this->headScript()->appendFile($this->baseUrl().'/scripts/masked-input.js')?>	
+	<?php $this->headScript()->appendFile($this->baseUrl().'/scripts/componente_mascaras.js')?>	
+	
+	<form name="FormAcesso" action="" method="post" class="form">
+		<div class="field-clear">&nbsp;</div>
+		<div class="field-clear">&nbsp;</div>
+		<fieldset>
+			<legend>Autentica&ccedil;&atilde;o </legend>
+			
+			<div class="grid-5-12">
+				<label class="form-lbl">E-mail:</label>
+				<input type="text" name="ds_email" class="form-txt" id="ds_email" maxlength="100">
+			</div>
+			<div class="grid-3-12">
+				<label class="form-lbl">Senha:</label>
+				<input type="password" name="co_senha" class="form-txt" id="co_senha">
+			</div>
+			<div class="grid-2-12 form-no-lbl">
+				<input type="button" class="form-button" value="Acessar" onclick="javascript: acessar();">
+			</div>
+			
+			<div class="grid-2-12 form-no-lbl">
+				<input type="button" id="btnNovaSenha" class="form-button" value="Nova Senha">
+			</div>
+			<div class="field-clear">&nbsp;</div>
+			</fieldset>
+	</form>
+<?php } else { ?>
+	O usuário já se encontra logado!
+<?php } ?>

@@ -1,0 +1,227 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/financeiro/rastreamento/index.js" type="text/javascript"></script>
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: FINANCEIRO ::.
+		<button style="float: right; margin-right: 15px;" href="" class="btn btn-primary" type="button" id="exibirInativos">Exibir Inativos</button>
+		<button style="float: right; margin-right: 15px;" data-toggle="modal" href="#modalCadastroRastreamento" class="btn btn-primary" type="button" id="novoRegistro">Novo Registro</button></h3>
+	</div>
+</div>
+<div id="message_success" class="alert alert-success hide">
+	<a class="close" data-dismiss="alert">×</a>
+	<h4 class="alert-heading"></h4>
+</div>
+<div id="message_error" class="alert alert-error hide">
+	<a class="close" data-dismiss="alert">×</a>
+	<h4 class="alert-heading">Erro!</h4>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Consulta Rastreamento</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				<form name="frmPesquisar" id="frmPesquisar" method="post">
+					<div class="clear">&nbsp;</div>
+					<div class="control-group">
+						<label class="col-lg-2 control-label" for="no_rastreamento">Nome:</label>
+						<div class="col-lg-6">
+							<input type="hidden" name="nu_page" id="nu_page">
+							<input type="hidden" name="st_consulta" id="st_consulta">
+							<input type="hidden" name="st_gerar_pdf" id="st_gerar_pdf">
+							<input type="text" class="form-control" name="no_rastreamento" id="no_rastreamento" size="50" value="<?php echo $this->no_rastreamento ?>">
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<div class="control-group">
+						<label class="col-lg-2 control-label" for="nu_cep">CEP:</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control" data-inputmask='"mask": "99.999-999"' data-mask name="nu_cep" id="nu_cep" size="20" value="<?php echo $this->nu_cep ?>">
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<div class="control-group">
+						<label class="col-lg-2 control-label" for="nu_rastreamento">Código:</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control" name="nu_rastreamento" id="nu_rastreamento" size="20" value="<?php echo $this->nu_rastreamento ?>">
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<div class="control-group">
+						<label class="col-lg-2 control-label" for="dt_final">Período:</label>
+						<div class="col-lg-1">
+							De
+						</div>
+						<div class="col-lg-3">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" title="Data de início"></i></span>
+								<input type="text" value="<?php echo $this->dt_inicio ?>" id="dt_inicio" name="dt_inicio" class="form-control">
+							</div>
+						</div>
+						<div class="col-lg-1">
+							Até
+						</div>
+						<div class="col-lg-3">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" title="Data final"></i></span>
+								<input type="text" value="<?php echo $this->dt_inicio ?>" id="dt_final" name="dt_final" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<div class="clear">&nbsp;</div>
+					<div class="control-group">
+						<button style="float: right; margin: 5px;" class="btn btn-primary" type="submit" id="btnPesquisar">Pesquisar</button>
+						<button style="float: right; margin: 5px;" class="btn btn-default" type="button" id="btnLimpar">Limpar</button>
+					</div>
+					<div class="clear">&nbsp;</div>
+					<div class="clear">&nbsp;</div>
+				</form>
+
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+	</div><!-- /.col -->
+</div><!-- /.row -->
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Rastreamento</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				<table id="table" class="table table-striped table-bordered">
+					<thead>
+ 						<tr>
+							<th>Nome</th>
+							<th>CEP</th>
+							<th>Cod Rastreio</th>
+							<th>Data</th>
+							<th>Opções</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							if( sizeof($this->paginator) ):
+							foreach ($this->paginator as $rastreamento) :
+						?>
+						<tr>
+							<td><?php echo $rastreamento['no_rastreamento']?></td>
+							<td><?php echo formataCEP($rastreamento['nu_cep']) ?></td>
+							<td><?php echo $rastreamento['nu_rastreamento'] ?></td>
+							<td><?php echo retornaDmy( $rastreamento['dt_cadastro'] ) ?></td>
+							<td>
+								<?php if($this->inativos ){?>
+									<a class="btn btn-default" title="Ativar" href="#" onclick="ativar('<?php echo $rastreamento['co_rastreamento']?>')"><i class="glyphicon glyphicon-ok"></i></a>
+								<?php }else{?>
+									<a class="btn btn-default" title="Rastrear" href="#" onclick="rastrear('<?php echo $rastreamento['nu_rastreamento']?>')"><i class="glyphicon glyphicon-pushpin"></i></a>
+									<a class="btn btn-default" title="Editar" href="#" onclick="editar('<?php echo $rastreamento['co_rastreamento']?>')"><i class="glyphicon glyphicon-edit"></i></a>
+									<a class="btn btn-default" title="Excluir" href="#" onclick="deletar(<?php echo $rastreamento['co_rastreamento']?>)"><i class="glyphicon glyphicon-trash"></i></a>
+								<?php }?>
+							</td>
+						</tr>
+						<?php endforeach;?>
+						<?php endif;?>
+					</tbody>
+				</table>
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+	</div><!-- /.col -->
+</div><!-- /.row -->
+<?php
+if(!$this->pesquisa){
+	echo $this->paginator;
+}
+?>
+
+<!-- Modal -->
+<div class="modal" id="modalCadastroRastreamento">
+	<form name="frmCadastroRastreamento" id="frmCadastroRastreamento">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="tituloModalExistente">Cadastrar Rastreamento</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<div class="well bs-component">
+
+							<div class="control-group">
+								<label class="col-lg-3 control-label" for="co_pessoa_juridica">Empresa:</label>
+								<div class="col-lg-9">
+									<?php echo $this->cliente();?>
+									<input type="hidden" name="co_rastreamento" id="co_rastreamento">
+								</div>
+							</div>
+							<div class="clear">&nbsp;</div>
+							<div class="control-group">
+								<label class="col-lg-3 control-label" for="nu_rastreamento">Nome:</label>
+								<div class="col-lg-9">
+									<input type="text" name="no_rastreamento" id="no_rastreamento" value="">
+								</div>
+							</div>
+							<div class="clear">&nbsp;</div>
+							<div class="control-group">
+								<label class="col-lg-3 control-label" for="nu_cep">CEP:</label>
+								<div class="col-lg-9">
+									<input class="input-medium cep" name="nu_cep" data-inputmask='"mask": "99.999-999"' data-mask id="nu_cep" type="text" size="30" maxlength="15" value="" />
+								</div>
+							</div>
+							<div class="clear">&nbsp;</div>
+							<div class="control-group">
+								<label class="col-lg-3 control-label" for="nu_rastreamento">Cod. Rastreamento:</label>
+								<div class="col-lg-9">
+									<input type="text" name="nu_rastreamento" id="nu_rastreamento" value="">
+								</div>
+							</div>
+							<div class="clear">&nbsp;</div>
+							<div class="control-group">
+								<label class="col-lg-3 control-label" for="ds_identificacao_conteudo">Identificação do conteúdo:</label>
+								<div class="col-lg-9">
+									<input class="input-xxlarge" required="required" type="text" name="ds_identificacao_conteudo" id="ds_identificacao_conteudo" size="50" value="" />
+								</div>
+							</div>
+							<div class="clear">&nbsp;</div>
+					</div>
+					</p>
+					<div class="clear">&nbsp;</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+					<button type="submit" id="btnSalvar" class="btn btn-primary">Salvar</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</form>
+</div><!-- /.modal --><!-- Modal -->
+<!-- Modal -->
+<div class="modal" id="modalRastreamento">
+	<form name="frmRastreamento" id="frmRastreamento">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close fecharRastreio" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="tituloModalExistente">Rastreamento de Objeto</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<div>
+						<h3 id="nuRastreio"></h3>
+					</div>
+					<div class="well bs-component" id="contreudoRastreio">
+					</div>
+					</p>
+					<div class="clear">&nbsp;</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn fecharRastreio">Fechar</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</form>
+</div><!-- /.modal --><!-- Modal -->

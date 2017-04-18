@@ -1,0 +1,10 @@
+<?php 
+
+$strNomeSistema = utf8_encode( "SISSCM" );
+
+$objMpdf = new mPDF('pt','A4-L','','',5,5);
+$objMpdf->SetHeader('{DATE d/m/Y - H:i:s}|'.$strNomeSistema.'|{PAGENO}/{nb}');
+$objMpdf->SetFooter($strNomeSistema.'| |{PAGENO}');
+$objMpdf->SetDisplayMode('fullpage');
+$objMpdf->WriteHTML($this->strHtml);
+$objMpdf->Output( $this->strNomeArquivo .date('d_m_Y_H_i_s'). '.pdf' , 'D' );

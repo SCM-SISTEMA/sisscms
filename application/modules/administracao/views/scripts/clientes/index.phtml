@@ -1,0 +1,108 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/administracao/clientes/index.js" type="text/javascript"></script>
+<div id="message_success" class="alert alert-success hide">
+	<h4 class="alert-heading"></h4>
+</div>
+
+<div id="message_error" class="alert alert-error hide">
+	<h4 class="alert-heading">Erro!</h4>
+</div>
+<div class="navbar">
+	<div class="navbar-inner">
+		<button style="float: right" class="btn btn-primary" type="button" id="novoRegistro">Novo Registro</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Clientes</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				<table id="clientes" class="table table-bordered table-striped">
+					<thead>
+					<tr>
+						<th>Nome/Razão Social</th>
+						<th>CPF/CNPJ</th>
+						<th>Telefone</th>
+						<th>Whatsapp</th>
+						<th>E-mail</th>
+						<th>Opções</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					if( sizeof($this->arrClientes) ):
+						foreach ($this->arrClientes as $cliente) :
+							$tp_pessoa = empty($cliente['nu_cnpj']) ? 'pf' : 'pj';
+							?>
+							<tr>
+								<td><?php echo empty($cliente['no_pessoa']) ?  $cliente['no_razao_social'] . ' / ' .$cliente['no_fantasia'] : $cliente['no_pessoa'] ?></td>
+								<td><?php echo formataCNPJ( $cliente['nu_cnpj'] );?></td>
+								<td><?php echo $cliente['nu_telefone_1']?></td>
+								<td><?php echo formataTEL( $cliente['nu_whatsapp'] )?></td>
+								<td><?php echo limitarTexto($cliente['ds_email'], 40)?></td>
+								<td width="100px;">
+									<a title="Visualizar" onclick="visualizar('<?php echo $cliente['co_pessoa']?>', '<?php echo $tp_pessoa?>')" href="#"><i class="glyphicon glyphicon-search"></i></a>
+									<a title="Editar" onclick="editar('<?php echo $cliente['co_pessoa']?>', '<?php echo $tp_pessoa?>')" href="#"><i class="glyphicon glyphicon-edit"></i></a>
+									<a title="Excluir" onclick="$('#co_modal').val(<?php echo $cliente['co_pessoa']?>);$('#modalConfirmaExcluir').modal('show');" href="#"><i class="glyphicon glyphicon-trash"></i></a>
+									<a title="Vincular Usruário" data-toggle="modal"  href="#modalUserAtendimento"><i class="glyphicon glyphicon-user"></i></a>
+								</td>
+							</tr>
+						<?php endforeach; endif;?>
+					</tbody>
+				</table>
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+	</div><!-- /.col -->
+</div><!-- /.row -->
+
+<!-- Modal -->
+<div class="modal" id="modalConfirmaExcluir">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="tituloModalExistente">Confirmação</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					Confirma a Exclusão?
+					<input type="hidden" name="co_pessoa" id="co_pessoa">
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+				<button type="button" id="btnExcluir" class="btn btn-primary">
+					Excluir
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- Modal -->
+<div class="modal" id="modalUserAtendimento">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="tituloModalExistente">Confirmação</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					<?php echo $this->usuario(null, 'class="form-control" style="width:50%" multiple=multiple');?>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+				<button type="button" id="btnVincular" class="btn btn-primary">
+					Vincular
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

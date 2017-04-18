@@ -1,0 +1,77 @@
+<?php
+include("include/funcoes_cef.php");
+foreach($this->dados as $dados) {
+	$dias_de_prazo_para_pagamento = 5;
+	$taxa_boleto = 0;
+	$data_venc = retornaDmy($dados['dt_vencimento']); // Prazo de X dias  OU  informe data: "13/04/2006"  OU  informe "" se Contra Apresentacao;
+	$valor_cobrado = $dados['ds_valor']; // Valor - REGRA: Sem pontos na milhar e tanto faz com "." ou "," ou com 1 ou 2 ou sem casa decimal
+	$valor_boleto = number_format($valor_cobrado + $taxa_boleto, 2, ',', '');
+
+	$dadosboleto["inicio_nosso_numero"] = "24";  // Carteira SR: 80, 81 ou 82  -  Carteira CR: 90 (Confirmar com gerente qual usar)
+	$dadosboleto["nosso_numero"] = $dados['nu_nosso_numero'];  // Nosso numero sem o DV - REGRA: M�ximo de 8 caracteres!
+	$dadosboleto["numero_documento"] = $dados['nu_documento'];    // Num do pedido ou do documento
+	$dadosboleto["data_vencimento"] = retornaDmy($dados['dt_vencimento']); // Data de Vencimento do Boleto - REGRA: Formato DD/MM/AAAA
+	$dadosboleto["data_documento"] = retornaDmy($dados['dt_cadastro']); // Data de emiss�o do Boleto
+	$dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do boleto (opcional)
+	$dadosboleto["valor_boleto"] = $valor_boleto;    // Valor do Boleto - REGRA: Com v�rgula e sempre com duas casas depois da virgula
+
+// DADOS DO SEU CLIENTE
+
+	$nome = $dados['no_razao_social'];
+	$endereco = $dados['ds_endereco'];
+	$nu_endereco = $dados['nu_endereco'];
+	$bairro = $dados['no_bairro'];
+	$cidade = $dados['no_cidade'];
+	$uf = $dados['sg_uf'];
+	$cep = $dados['nu_cep'];
+
+	$dadosboleto["sacado"] = $nome;
+	$dadosboleto["endereco1"] = $endereco . ' ' . $nu_endereco;
+	$dadosboleto["endereco2"] = $cidade . " - " . $uf . " - " . $bairro . " - CEP: " . formataCEP($cep);
+
+// INFORMACOES PARA O CLIENTE
+	$dadosboleto["demonstrativo1"] = utf8_decode("Contrato para serviço: " . $dados['sg_servico']);
+	$dadosboleto["demonstrativo2"] = utf8_decode("Mensalidade referente a contratação de serviço");
+	$dadosboleto["demonstrativo3"] = "SCM ENGENHARIA";
+
+// INSTRU��ES PARA O CAIXA
+	$valorMulta = $valor_boleto * 2 / 100;
+	$valorJuros = $valor_boleto * 0.03 / 100;
+	$dadosboleto["instrucoes1"] = utf8_decode("- MULTA DE R$ ".formatValShow($valorMulta, 2)." APÓS ".$dadosboleto["data_vencimento"]);
+	$dadosboleto["instrucoes2"] = utf8_decode("- JUROS DE R$ ".formatValShow($valorJuros, 2)." AO DIA");
+	$dadosboleto["instrucoes3"] = utf8_decode("- NÃO RECEBER APÓS 10 DIAS DO VENCIMENTO");
+	$dadosboleto["instrucoes4"] = utf8_decode("- Em caso de dúvidas entre em contato conosco: scmatendimento@scmengenharia.com.br");
+
+// DADOS OPCIONAIS DE ACORDO COM O BANCO OU CLIENTE
+	$dadosboleto["quantidade"] = "";
+	$dadosboleto["valor_unitario"] = "";
+	$dadosboleto["aceite"] = "";
+	$dadosboleto["especie"] = "R$";
+	$dadosboleto["especie_doc"] = "";
+
+
+// ---------------------- DADOS FIXOS DE CONFIGURA��O DO SEU BOLETO --------------- //
+
+
+// DADOS DA SUA CONTA - CEF
+	$dadosboleto["agencia"] = NU_AGENCIA; // Num da agencia, sem digito
+	$dadosboleto["conta"] = NU_CONTA;    // Num da conta, sem digito
+	$dadosboleto["conta_dv"] = NU_CONTA_DV;    // Digito do Num da conta
+
+// DADOS PERSONALIZADOS - CEF
+	$dadosboleto["conta_cedente"] = CONTA_CEDENTE; // ContaCedente do Cliente, sem digito (Somente Números)
+	$dadosboleto["conta_cedente_dv"] = CONTA_CEDENTE_DV; // Digito da ContaCedente do Cliente
+	$dadosboleto["carteira"] = CARTEIRA;  // Código da Carteira: pode ser SR (Sem Registro) ou CR (Com Registro) - (Confirmar com gerente qual usar)
+
+// SEUS DADOS
+	$dadosboleto["identificacao"] = IDENTIFICACAO;
+	$dadosboleto["cpf_cnpj"] = CPF_CNPJ;
+	$dadosboleto["endereco"] = ENDERECO;
+	$dadosboleto["cidade_uf"] = CIDADE_UF;
+	$dadosboleto["cedente"] = CEDENTE;
+
+// NÃO ALTERAR!
+	include("include/layout_cef.php");
+}
+
+?>

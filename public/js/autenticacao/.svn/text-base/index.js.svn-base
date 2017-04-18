@@ -1,0 +1,19 @@
+/* Função acessar */
+function acessar() {
+	if($("#ds_email").val() == "") {
+		alerta("Por favor informe o e-mail.",$("#ds_email"));
+		return false;
+	}
+	
+	if($("#co_senha").val() == "") {
+		alerta("Por favor informe a senha.",$("#co_senha"));
+		return false;
+	}
+	document.FormAcesso.submit();
+}
+
+$(function(){
+	$('#btnNovaSenha').click(function(){
+		location.href= sistemaUrl + 'autenticacao/novasenha';
+	})
+})

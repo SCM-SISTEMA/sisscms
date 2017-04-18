@@ -1,0 +1,853 @@
+
+<?php
+
+class Financeiro_MovimentacoesController extends Zend_Controller_Action
+{
+
+    public function init()
+    {
+        /* Initialize action controller here */
+    }
+
+	public function indexAction()
+    {
+    	$message = new Zend_Session_Namespace('message');
+
+    	if( $this->getRequest()->getParam('msg') ){
+    		$this->view->msg = $this->getRequest()->getParam('msg');
+    	}
+
+    	$provisoesDespesas = 0;
+		$arrMovimentacoes = Model_Movimentacao::getInstance()->getConsultaAll(array());
+		foreach( $arrMovimentacoes as $movimentacao  ){
+			if( empty($movimentacao['dt_quitacao']) ){
+				$provisoesDespesas += $movimentacao['ds_valor'];
+			}
+		}
+		$despesas = array_sum(array_column($arrMovimentacoes, 'ds_valor'));
+
+		$provisoesReceitas = 0;
+		$arrParcelas = Model_ContratoParcela::getInstance()->getConsultaAll(array());
+		foreach( $arrParcelas as $parcela  ){
+			if( empty($parcela['dt_quitacao']) ){
+				$provisoesReceitas += $parcela['ds_valor'];
+			}
+		}
+		$receitas = array_sum(array_column($arrParcelas, 'ds_valor'));
+
+    	$saldoTotal = $receitas - $despesas;
+    	$provisoesTotal = $provisoesReceitas - $provisoesDespesas;
+    	
+
+    	$arrVencidos = Model_Movimentacao::getInstance()->getConsultaVencidos(array('tp_movimentacao' => 'D'));
+    	$arrVencendo = Model_Movimentacao::getInstance()->getConsultaVencendo(array('tp_movimentacao' => 'D'));
+    	
+    	$this->view->saldo = moeda($saldoTotal);
+    	$this->view->provisoes = moeda($provisoesTotal);
+    	$this->view->vencidas = count( $arrVencidos );
+    	$this->view->vencendo = count($arrVencendo);
+    	$this->view->provisoesTotal = moeda($provisoesTotal);
+    	$this->view->receitas = moeda($receitas);
+    	$this->view->despesas = moeda($despesas);
+    	$this->view->provisoesReceitas = moeda($provisoesReceitas);
+    	$this->view->provisoesDespesas = moeda($provisoesDespesas);
+    	$this->view->arrMovimentacoes = $arrMovimentacoes;
+
+    }
+	    
+	    
+    public function editarAction(){
+	    	
+    	$id_chamado = $this->getRequest()->getParam('id_chamado');
+    	$this->view->chamado = (object) Model_Chamado::getInstance()->getConsulta( array( 'id' => $id_chamado ) );
+    	
+    	if( $this->getRequest()->isPost() && $this->getRequest()->getParam('protocolo') ) {
+    		if( $this->editar() ){
+    			$_SESSION['message'] = 'Chamado alterado com sucesso!';
+				$params = array('msg' => 'sucesso', 'protocolo' => $this->getRequest()->getParam('protocolo'));
+				$this->_helper->redirector('index', 'chamados', null, $params);
+    		}
+    	}
+    }
+    
+    public function salvarDespesaAction(){
+
+		$this->_helper->layout->disableLayout();
+		$this->_helper->viewRenderer->setNoRender();
+    	
+    	try{
+    		$user = Zend_Auth::getInstance()->getIdentity();
+			$nu_qtd_despesa = $this->getRequest()->getParam('nu_qtd_despesa');
+
+    		$arrParam = array(
+	    		'co_banco' 			=> $this->getRequest()->getParam('co_banco'),
+	    		'ds_despesa' 		=> $this->getRequest()->getParam('ds_documento'),
+	    		'dt_pagamento' 		=> retornaYmd( $this->getRequest()->getParam('dt_pagamento_despesa') ),
+	    		'dt_vencimento' 	=> retornaYmd( $this->getRequest()->getParam('dt_vencimento') ),
+	    		'MovPes' 			=> $this->getRequest()->getParam('ds_fornecedor'),
+	    		'ds_valor' 			=> str_replace('R$ ', '', $this->getRequest()->getParam('ds_valor') ) ,
+	    		'ds_observacao' 	=> $this->getRequest()->getParam('ds_observacao'),
+				'dt_cadastro' 		=> date('Y-m-d'),
+	    		'co_usuario' 		=> $user['user']->co_usuario
+    		);
+
+			if($nu_qtd_despesa>0){
+				$i=0;
+				$dt_vencimento = $arrParam['dt_vencimento'];
+				while( $i<$nu_qtd_despesa){
+					if($i>0){
+						$dt_vencimento = adicionarDiaData($dt_vencimento, 30);
+						$arrParam['dt_vencimento'] = $dt_vencimento;
+					}
+					Model_Despesas::getInstance()->insert( $arrParam );
+					$i++;
+				}
+			}else{
+				Model_Despesas::getInstance()->insert( $arrParam );
+			}
+
+			$params = array('msg' => 'success' );
+
+		}catch( Exception $e ){
+			debug($e, 1);
+			$params = array('msg' => 'erro' );
+		}
+
+		$this->_response->appendBody(Zend_Json::encode($params));
+    	
+    }
+    
+    
+    public function salvarFormaPagamentoAction(){
+    	
+    	try{
+    		$user = Zend_Auth::getInstance()->getIdentity();
+    		
+	    	$arrParam = array(
+	    		'ds_forma_pagamento' => $this->getRequest()->getParam('ds_forma_pagamento'),
+	    		'nu_parcelas' 		 => $this->getRequest()->getParam('nu_parcelas'),
+	    		'nu_qtd_dias' 		 => $this->getRequest()->getParam('nu_qtd_dias')
+	    	);
+	    	
+	    	Administracao_Model_FormaPagamento::getInstance()->insert( $arrParam );
+	    	
+	    	$namespace = new Zend_Session_Namespace('message');
+	    	$namespace->message = "Operação realizada com sucesso";
+	    	$params = array('msg' => 'success' );
+	    	$this->_helper->redirector('index', 'contrato', 'administracao', $params);
+	    	
+    	}catch( Exception $e ){
+    		$_SESSION['message'] = 'Erro Ao tentar gravar o chamado: '.$e;
+    		$params = array('msg' => 'erro' );
+	    	$this->_helper->redirector('index', 'cnae', 'administracao', $params);
+    	}
+    	
+    }
+    
+    public function dadosContratoAction(){
+    	$co_contrato = base64_decode( $this->getRequest()->getParam('co_contrato') );
+    	$arrDados = array();
+    	 
+    	$arrContrato = Administracao_Model_Contrato::getInstance()->getConsulta( array('co_contrato' => $co_contrato ) );
+    	$dataVencimento = new Zend_Date( $arrContrato['dt_vencimento'] );
+    	$dataCadastro	= new Zend_Date( $arrContrato['dt_cadastro'] );
+    	$dataFinal		= new Zend_Date( $arrContrato['dt_final'] );
+    	
+    	$arrDados['ds_servico'] 			= $arrContrato['ds_servico'];
+    	$arrDados['nu_telefone'] 			= $arrContrato['nu_telefone_1'];
+    	$arrDados['ds_forma_pagamento']		= $arrContrato['ds_forma_pagamento'];
+    	$arrDados['dt_contrato']	 		= $dataCadastro->get( Zend_Date::DAY ) . ' de ' . $dataCadastro->get( Zend_Date::MONTH_NAME ) . ' de ' . $dataCadastro->get( Zend_Date::YEAR );
+    	$arrDados['dt_final']	 			= $dataFinal->get( Zend_Date::DAY ) . ' de ' . $dataFinal->get( Zend_Date::MONTH_NAME ) . ' de ' . $dataFinal->get( Zend_Date::YEAR );
+    	$arrDados['valor_contrato'] 		= moeda( $arrContrato['ds_valor'] );
+    	$arrDados['valor_contrato_extenso'] = escreverValorMoeda( moeda( $arrContrato['ds_valor'] ) );
+    	
+    	if( $arrContrato['tp_pessoa'] == 'PJ' ){
+	    	$arrCliente = Administracao_Model_PessoaJuridica::getInstance()->getConsulta( array( 'co_pessoa_juridica' => $arrContrato['co_pessoa'] ) );
+	    	$arrDados['no_pessoa'] = $arrCliente['no_razao_social'];
+	    	$arrDados['tp_documento'] = 'CNPJ';
+	    	$arrDados['nu_documento'] = formataCNPJ( $arrCliente['nu_cnpj'] );
+    	}elseif( $arrContrato['tp_pessoa'] == 'PF' ){
+	    	$arrCliente = Administracao_Model_PessoaFisica::getInstance()->getConsulta( array( 'co_pessoa_fisica' => $arrContrato['co_pessoa'] ));
+	    	$arrDados['no_pessoa'] = strtoupper( $arrCliente['no_pessoa_fisica'] );
+	    	$arrDados['tp_documento'] = 'CPF';
+	    	$arrDados['nu_documento'] = formataCPF( $arrCliente['nu_cpf'] );
+    	}
+    	
+    	$arrDados['ds_endereco'] = $arrCliente['ds_endereco'] . ' ' . $arrCliente['nu_endereco'];
+    	$arrDados['nu_cep'] = formataCEP( $arrCliente['nu_cep'] );
+    	
+    	$arrformaPagamento = Administracao_Model_FormaPagamento::getInstance()->getConsulta( array( 'co_forma_pagamento' => $arrContrato['co_forma_pagamento'] ) );
+    	
+    	$arrServico = Administracao_Model_Servicos::getInstance()->getConsulta( array( 'co_servico' => $arrContrato['co_servico'] ) );
+    	$arrTipoServico = Administracao_Model_TipoContrato::getInstance()->getConsulta( array( 'co_tipo_contrato' => $arrServico['co_tipo_contrato'] ));
+    	
+    	$arrContratoParcela = Administracao_Model_ContratoParcela::getInstance()->getConsultaAll( array( 'co_contrato' => $arrContrato['co_contrato'] ) );
+    	$arrParcelas = array();
+    	foreach( $arrContratoParcela as $key => $parcelas ){
+    		$dataVencimento = new Zend_Date( $parcelas['dt_vencimento'] );
+    		$arrParcelas[$key]['co_contrato_parcela'] 	= $parcelas['co_contrato_parcela'];
+    		$arrParcelas[$key]['valor_parcela'] 		= moeda( $parcelas['ds_valor'] );
+    		$arrParcelas[$key]['st_status'] 			= $parcelas['st_status'];
+    		$arrParcelas[$key]['valor_parcela_extenso'] = escreverValorMoeda( moeda( $parcelas['ds_valor'] ) );
+    		$arrParcelas[$key]['data_por_extenso'] 		= $dataVencimento->get( Zend_Date::DAY ) . ' de ' . $dataVencimento->get( Zend_Date::MONTH_NAME ) . ' de ' . $dataVencimento->get( Zend_Date::YEAR );
+    	}
+    	
+    	
+    	$arrDados['parcelas'] = $arrParcelas;
+    	$arrDados['tipoContrato'] = $arrServico['co_tipo_contrato'];
+    	
+    	$this->view->dados	= $arrDados;
+    	
+    }
+    
+    public function gerarBoletoAction(){
+    	$this->_helper->layout->disableLayout();
+    	$co_boleto = $this->getRequest()->getParam('co_boleto');
+		$arrBoleto = Model_Boleto::getInstance()->getConsulta( array( 'co_boleto' => $co_boleto ) );
+    	$this->view->dados = $arrBoleto;
+    }
+
+    public function gerarBoletoClienteAction(){
+    	$this->_helper->layout->disableLayout();
+		$arrParam = array(
+			"co_pessoa_juridica"	=> $this->getRequest()->getParam('co_pessoa'),
+			"nu_documento" 			=> $this->getRequest()->getParam('nu_documento'),
+			"nu_nosso_numero"		=> $this->getRequest()->getParam('ds_nosso_numero'),
+			"ds_fic_comp"			=> $this->getRequest()->getParam('ds_fic_comp'),
+			"dt_inicio_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_vencimento') ),
+			"dt_final_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_vencimento') ),
+			"dt_inicio_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_pagamento') ),
+			"dt_final_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_pagamento') ),
+			"st_pagamento"			=> $this->getRequest()->getParam('st_pagamento'),
+			"st_consulta"			=> $this->getRequest()->getParam('st_consulta')
+		);
+
+		$arrBoleto = Model_Boleto::getInstance()->getConsultaAll( $arrParam );
+    	$this->view->dados = $arrBoleto;
+    }
+
+    public function despesasAction(){
+
+		$arrParam = array();
+
+		if( $this->getRequest()->isPost() ) {
+
+			$arrParam = array(
+				"co_centro_custo"		=> $this->getRequest()->getParam('co_centro_custo'),
+				"ds_despesa" 			=> $this->getRequest()->getParam('ds_despesa'),
+				"dt_inicio_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_vencimento') ),
+				"dt_final_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_vencimento') ),
+				"dt_inicio_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_pagamento') ),
+				"dt_final_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_pagamento') ),
+				"st_pagamento"			=> $this->getRequest()->getParam('st_pagamento'),
+				"st_consulta"			=> $this->getRequest()->getParam('st_consulta')
+			);
+
+			$this->view->co_centro_custo		= $this->getRequest()->getParam('co_centro_custo');
+			$this->view->ds_despesa 			= $this->getRequest()->getParam('ds_despesa');
+			$this->view->dt_inicio_vencimento	= $this->getRequest()->getParam('dt_inicio_vencimento');
+			$this->view->dt_final_vencimento	= $this->getRequest()->getParam('dt_final_vencimento');
+			$this->view->dt_inicio_pagamento	= $this->getRequest()->getParam('dt_inicio_pagamento');
+			$this->view->dt_final_pagamento		= $this->getRequest()->getParam('dt_final_pagamento');
+			$this->view->st_pagamento			= $this->getRequest()->getParam('st_pagamento');
+			$this->view->st_consulta			= $this->getRequest()->getParam('st_consulta');
+		}
+
+    	$arrDespesas = Model_Despesas::getInstance()->getConsultaAll($arrParam);
+
+		$total = count($arrDespesas);
+
+		$this->view->total = array_sum(array_column($arrDespesas, 'ds_valor'));
+		$this->view->cTotal = $total;
+		// Vencidos
+		$this->view->vencidos = array_sum(array_column($arrDespesas, 'vencidos'));
+		$this->view->cVencidos = array_sum(array_column($arrDespesas, 'cVencidos'));
+		// Vencendo
+		$this->view->vencendo = array_sum(array_column($arrDespesas, 'vencendo'));
+		$this->view->cVencendo = array_sum(array_column($arrDespesas, 'cVencendo'));
+		// A Vencer
+		$this->view->vencer = array_sum(array_column($arrDespesas, 'vencer'));
+		$this->view->cVencer = array_sum(array_column($arrDespesas, 'cVencer'));
+		// Pagos
+		$this->view->pagos = array_sum(array_column($arrDespesas, 'pagos'));
+		$this->view->cPagos = array_sum(array_column($arrDespesas, 'cPagos'));
+
+		$page = $this->getRequest()->getParam('nu_page') ? $this->getRequest()->getParam('nu_page'):  $this->_getParam('page', 1);
+		$pcount = $this->_getParam('count_per_page', 20);
+
+		$paginator = Zend_Paginator::factory($arrDespesas);
+		$paginator->setCurrentPageNumber($page)
+			->setItemCountPerPage($pcount);
+
+		$this->view->paginator = $paginator;
+		$this->view->pcount = $pcount;
+    }
+    
+    public function boletosAction(){
+
+		ini_set('memory_limit', '640M');
+
+		$arrParam = array();
+
+		if( $this->getRequest()->isPost() ) {
+
+			$arrParam = array(
+				"co_pessoa_juridica"	=> $this->getRequest()->getParam('co_pessoa'),
+				"nu_documento" 			=> $this->getRequest()->getParam('nu_documento'),
+				"nu_nosso_numero"		=> $this->getRequest()->getParam('ds_nosso_numero'),
+				"ds_fic_comp"			=> $this->getRequest()->getParam('ds_fic_comp'),
+				"dt_inicio_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_vencimento') ),
+				"dt_final_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_vencimento') ),
+				"dt_inicio_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_pagamento') ),
+				"dt_final_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_pagamento') ),
+				"st_pagamento"			=> $this->getRequest()->getParam('st_pagamento'),
+				"st_consulta"			=> $this->getRequest()->getParam('st_consulta')
+			);
+
+			$this->view->co_pessoa_juridica		= $this->getRequest()->getParam('co_pessoa');
+			$this->view->nu_documnto 			= $this->getRequest()->getParam('nu_documento');
+			$this->view->ds_nosso_numero		= $this->getRequest()->getParam('ds_nosso_numero');
+			$this->view->ds_fic_comp			= $this->getRequest()->getParam('ds_fic_comp');
+			$this->view->dt_inicio_vencimento	= $this->getRequest()->getParam('dt_inicio_vencimento');
+			$this->view->dt_final_vencimento	= $this->getRequest()->getParam('dt_final_vencimento');
+			$this->view->dt_inicio_pagamento	= $this->getRequest()->getParam('dt_inicio_pagamento');
+			$this->view->dt_final_pagamento		= $this->getRequest()->getParam('dt_final_pagamento');
+			$this->view->st_pagamento			= $this->getRequest()->getParam('st_pagamento');
+			$this->view->st_consulta			= $this->getRequest()->getParam('st_consulta');
+		}
+
+    	$arrBoletos = Model_Boleto::getInstance()->getConsultaAll($arrParam);
+
+		$totalValor = array_count_values(array_column($arrBoletos, 'ds_valor'));
+
+		if($this->getRequest()->getParam('st_pagamento') == 1){
+			$this->view->total = array_sum(array_column($arrBoletos, 'abertos'));
+		}elseif($this->getRequest()->getParam('st_pagamento') == 2){
+			$this->view->total = array_sum(array_column($arrBoletos, 'pagos'));
+		}else{
+			$this->view->total = array_sum(array_column($arrBoletos, 'ds_valor'));
+		}
+
+		$this->view->cTotalValor = $totalValor;
+		$this->view->cTotal = count($arrBoletos);
+
+		// Abertos
+		$this->view->abertos = array_sum(array_column($arrBoletos, 'abertos'));
+		$this->view->cAbertos = count(array_filter(array_column($arrBoletos, 'abertos')));
+
+
+		// Pagos
+		$this->view->pagos = array_sum(array_column($arrBoletos, 'pagos'));
+		$this->view->cPagos = count(array_filter(array_column($arrBoletos, 'pagos')));
+
+		$page = $this->getRequest()->getParam('nu_page') ? $this->getRequest()->getParam('nu_page'):  $this->_getParam('page', 1);
+		$pcount = $this->_getParam('count_per_page', 20);
+
+		$paginator = Zend_Paginator::factory($arrBoletos);
+		$paginator->setCurrentPageNumber($page)
+			->setItemCountPerPage($pcount);
+
+		$this->view->paginator = $paginator;
+		$this->view->pcount = $pcount;
+    }
+    
+    public function graficosAction(){
+    	$this->_helper->layout->disableLayout();
+    	$message = new Zend_Session_Namespace('message');
+    	
+    	if( $this->getRequest()->getParam('msg') ){
+    		$this->view->msg = $this->getRequest()->getParam('msg');
+    	}
+
+		$arrReceitas = Model_Movimentacao::getInstance()->getConsultaAll(array('tp_movimentacao' => 'R'));
+    	$this->view->arrReceitas = $arrReceitas;
+    }
+    
+    public function despesasVencidasAction(){
+		$this->_helper->layout->disableLayout();
+    	$message = new Zend_Session_Namespace('message');
+
+    	if( $this->getRequest()->getParam('msg') ){
+    		$this->view->msg = $this->getRequest()->getParam('msg');
+    	}
+
+    	$arrDespesas = Model_Movimentacao::getInstance()->getConsultaVencidos(array('tp_movimentacao' => 'D'));
+    	
+    	$dPage = $this->_getParam('page', 1);
+    	$dPcount = $this->_getParam('count_per_page', 20);
+    	
+    	$dPaginator = Zend_Paginator::factory($arrDespesas);
+    	$dPaginator->setCurrentPageNumber($dPage)
+    	->setItemCountPerPage($dPcount);
+    	
+    	$this->view->dPaginator = $dPaginator;
+    	$this->view->dPcount = $dPcount;
+    }
+    
+    public function despesasVencendoAction(){
+		$this->_helper->layout->disableLayout();
+    	$message = new Zend_Session_Namespace('message');
+    	
+    	if( $this->getRequest()->getParam('msg') ){
+    		$this->view->msg = $this->getRequest()->getParam('msg');
+    	}
+    	
+    	$arrDespesas = Model_Movimentacao::getInstance()->getConsultaVencendo(array('tp_movimentacao' => 'D'));
+    	
+    	$dPage = $this->_getParam('page', 1);
+    	$dPcount = $this->_getParam('count_per_page', 20);
+    	
+    	$dPaginator = Zend_Paginator::factory($arrDespesas);
+    	$dPaginator->setCurrentPageNumber($dPage)
+    	->setItemCountPerPage($dPcount);
+    	
+    	$this->view->dPaginator = $dPaginator;
+    	$this->view->dPcount = $dPcount;
+    }
+    
+    public function quitarBoletoAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+    	
+    	$co_boleto = $this->getRequest()->getParam( 'co_boleto' );
+    	
+    	$arrParam = array('dt_ocorrencia' => Zend_Date::now()->toString("Y-M-d hh:mm:ss") );
+    	
+    	try{ 
+    		Model_Boleto::getInstance()->update($arrParam, 'co_boleto = '.$co_boleto );
+    		$params = array('msg' => 'success' );
+    		
+    	}catch( Exception $e ){
+    		$params = array('msg' => 'erro' );
+    	}
+    	
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+
+    public function enviarAdvogadoAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+
+    	$co_boleto = $this->getRequest()->getParam( 'co_boleto' );
+
+    	$arrParam = array('st_advogado' => 'S');
+
+    	try{
+    		Model_Boleto::getInstance()->update($arrParam, 'co_boleto = '.$co_boleto );
+    		$params = array('msg' => 'success' );
+
+    	}catch( Exception $e ){
+    		$params = array('msg' => 'erro' );
+    	}
+
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+
+    public function quitarParcelaAction(){
+    	$this->_helper->viewRenderer->setNoRender();
+    	
+    	$user = Zend_Auth::getInstance()->getIdentity();
+    	
+    	$co_contrato_parcela = $this->getRequest()->getParam( 'co_contrato_parcela' );
+    	
+    	$arrParam = array( 'dt_quitacao' => Zend_Date::now()->toString("Y-M-d hh:mm:ss"), 'co_usuario_quitacao' => $user['user']->co_usuario );
+    	
+    	try{ 
+    		Model_ContratoParcela::getInstance()->update($arrParam, 'co_contrato_parcela = '.$co_contrato_parcela );
+    		$params = array('msg' => 'success' );
+    		
+    	}catch( Exception $e ){
+    		$params = array('msg' => 'erro' );
+    	}
+    	
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+    
+    public function deletarAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+    	
+    	$co_movimentacao = $this->getRequest()->getParam( 'co_movimentacao' );
+    	
+    	$arrParam = array( 'st_ativo' => 'N' );
+    	
+    	try{ 
+    		Model_Movimentacao::getInstance()->update($arrParam, 'co_movimentacao = '.$co_movimentacao );
+    		$params = array('msg' => 'success' );
+    		
+    	}catch( Exception $e ){
+    		$params = array('msg' => 'erro' );
+    	}
+    	
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+
+    public function salvarBoletoAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+
+		$nu_qtd_parcelas = $this->getRequest()->getParam('nu_qtd_parcelas');
+
+		$dt_vencimento = retornaYmd($this->getRequest()->getParam('dt_vencimento'));
+
+		for($i=1; $i<=$nu_qtd_parcelas; $i++) {
+
+			if($i == 1){
+				$vencimento[$i] = $dt_vencimento;
+			}else{
+				$dt_vencimento = adicionarMesData($dt_vencimento, 1);
+				$vencimento[$i] = $dt_vencimento;
+			}
+
+			$nossoNumero = Model_Boleto::getInstance()->getUltimoNossoNumero();
+
+			$nu_documento = $this->getRequest()->getParam('nu_documento');
+
+			if($nu_qtd_parcelas>1){
+				$nu_documento = ($i<10) ? $this->getRequest()->getParam('nu_documento').'/00'.$i : $this->getRequest()->getParam('nu_documento').'/0'.$i;
+			}
+
+			$arrParam = array(
+				'co_cliente' => $this->getRequest()->getParam('co_pessoa'),
+				'dt_vencimento' => $vencimento[$i],
+				'ds_valor' => floatval(str_replace(',', '.', str_replace('R$ ', '', $this->getRequest()->getParam('ds_valor')))),
+				'nu_documento' => $nu_documento,
+				'ds_fic_comp' => $this->getRequest()->getParam('ds_fic_comp'),
+				'dt_cadastro' => date('Y-m-d'),
+				'nu_nosso_numero' => $nossoNumero['nu_nosso_numero'],
+				'st_ativo' => 'S',
+			);
+			
+			try {
+				Model_Boleto::getInstance()->insert($arrParam);
+				$params = array('msg' => 'success');
+
+			} catch (Exception $e) {
+				$params = array('msg' => 'erro', 'message' => $e->getMessage());
+			}
+		}
+
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+
+    public function confirmarExclusaoAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+
+		$arrBoletos = explode(',', $this->getRequest()->getParam('co_boleto'));
+
+		foreach($arrBoletos as $boleto ){
+
+			$arrParam = array(
+				'ds_justificativa_exclusao' => $this->getRequest()->getParam('ds_justificativa_exclusao'),
+				'dt_exclusao' => date('Y-m-d'),
+				'st_ativo' => 'N'
+			);
+
+			try {
+				Model_Boleto::getInstance()->update($arrParam, 'co_boleto = '.$boleto);
+				$params = array('msg' => 'success');
+
+			} catch (Exception $e) {
+				$params = array('msg' => 'erro', 'message' => $e->getMessage());
+			}
+		}
+
+
+
+    	$this->_response->appendBody(Zend_Json::encode($params));
+    }
+
+    public function gerarPdfAction(){
+		ini_set('memory_limit', '148M');
+
+		$this->_helper->layout->disableLayout();
+		$this->_helper->viewRenderer->setNoRender();
+
+		$pdf= new FPDF("P","pt","A4");
+		$pdf->AddPage();
+
+		$pdf->Ln(8);
+		$pdf->Ln(8);
+		$pdf->Ln(8);
+
+		$arrParam = array(
+			"co_pessoa_juridica"	=> $this->getRequest()->getParam('co_pessoa'),
+			"nu_documento" 			=> $this->getRequest()->getParam('nu_documento'),
+			"nu_nosso_numero"		=> $this->getRequest()->getParam('ds_nosso_numero'),
+			"ds_fic_comp"			=> $this->getRequest()->getParam('ds_fic_comp'),
+			"dt_inicio_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_vencimento') ),
+			"dt_final_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_vencimento') ),
+			"dt_inicio_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_pagamento') ),
+			"dt_final_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_pagamento') ),
+			"st_pagamento"			=> $this->getRequest()->getParam('st_pagamento'),
+			"st_consulta"			=> $this->getRequest()->getParam('st_consulta')
+		);
+
+		$arrBoletos = Model_Boleto::getInstance()->getConsultaAll($arrParam);
+
+		// Abertos
+		$abertos = array_sum(array_column($arrBoletos, 'abertos'));
+		$cAbertos = count(array_filter(array_column($arrBoletos, 'abertos')));
+
+
+		// Pagos
+		$pagos = array_sum(array_column($arrBoletos, 'pagos'));
+		$cPagos = count(array_filter(array_column($arrBoletos, 'pagos')));
+
+		$pdf = new InvoicePDF('P','mm','Letter');
+
+		$pdf->AddPage();
+		$pdf->SetFont('arial','B',14);
+		$pdf->Cell(0,4,"RELATORIO GERAL",0,1,'C');
+		$pdf->Image('images/logo_scm.jpg');
+		$pdf->Ln(6);
+
+		$pdf->SetY(28); //reset the Y to the original, since we moved it down to write INVOICE
+		$pdf->SetFont('Arial','',7);
+
+		$pdf->SetFillColor(236,240,235); //Set background of the cell to be that grey color
+		$pdf->Cell(60,5,"Nome",0,0,'C',true);
+		$pdf->Cell(25,5,"Seu Numero",0,0,'C',true);  //Write a cell 20 wide, 12 high, filled and bordered, with Order # centered inside, last argument 'true' tells it to fill the cell with the color specified
+		$pdf->Cell(25,5,"Nosso Numero",0,0,'C',true);  //Write a cell 20 wide, 12 high, filled and bordered, with Order # centered inside, last argument 'true' tells it to fill the cell with the color specified
+		$pdf->Cell(15,5,"Valor",0,0,'C',true);
+		$pdf->Cell(15,5,"Valor Pago",0,0,'C',true);
+		$pdf->Cell(25,5,"Vencimento",0,0,'C',true); //the 1 before the 'C' instead of 0 in previous lines tells it to move down by the height of the cell after writing this
+		$pdf->Cell(25,5,"Ocorrencia",0,1,'C',true); //the 1 before the 'C' instead of 0 in previous lines tells it to move down by the height of the cell after writing this
+
+		foreach($arrBoletos as $info) {
+			$pdf->Cell(60,5,utf8_decode(limitar($info['no_razao_social'], 30)),0,'L',false); //I assume the customer address info is broken up into multiple different pieces
+			$pdf->Cell(25, 5, $info['nu_documento'], 0, 0, 'C');
+			$pdf->Cell(25, 5, $info['nu_nosso_numero'], 0, 0, 'C');
+			$pdf->Cell(15, 5, formatValShow($info['ds_valor'], 2), 0, 0, 'C');
+			$pdf->Cell(15, 5, formatValShow($info['ds_valor_pago'], 2), 0, 0, 'C');
+			$pdf->Cell(25, 5, retornaDmy($info['dt_vencimento']), 0, 0, 'C');
+			$pdf->Cell(25, 5, retornaDmy($info['dt_ocorrencia']), 0, 1, 'C');
+		}
+
+		$pdf->Ln(6);
+
+		$pdf->Cell(60,5,'TOTAIS',0,'L',false); //I assume the customer address info is broken up into multiple different pieces
+		$pdf->Cell(25, 5, '', 0, 0, 'C');
+		$pdf->Cell(25, 5, count($arrBoletos), 0, 0, 'C');
+		$pdf->Cell(15, 5, array_sum(array_column($arrBoletos, 'ds_valor')), 0, 0, 'C');
+		$pdf->Cell(15, 5, array_sum(array_column($arrBoletos, 'ds_valor_pago')), 0, 0, 'C');
+		$pdf->Cell(25, 5, '', 0, 0, 'C');
+		$pdf->Cell(25, 5, '', 0, 1, 'C');
+
+		$pdf->Output('filename.pdf','I');
+	}
+
+	public function roboAtualizaDataPagamentoAction(){
+
+		$this->_helper->layout->disableLayout();
+		$this->_helper->viewRenderer->setNoRender();
+
+		set_time_limit(0);
+
+		try{
+			$arrDespesa = Model_Despesas::getInstance()->getConsultaAll(array());
+			foreach ($arrDespesa as $item) {
+				if(!empty($item['dt_pagamento']) || !is_null($item['dt_pagamento']))
+					Model_Despesas::getInstance()->update(array('dt_pagamento' => retornaYmd($item['dt_pagamento'])), 'co_despesa = '.$item['co_despesa']);
+			}
+		}catch(Exception $e){
+			debug($e, 1);
+		}
+	}
+
+	public function roboAtualizaDataVencimentoAction(){
+
+		$this->_helper->layout->disableLayout();
+		$this->_helper->viewRenderer->setNoRender();
+
+		set_time_limit(0);
+
+		try{
+			$arrDespesa = Model_Despesas::getInstance()->getConsultaAll(array());
+			foreach ($arrDespesa as $item) {
+				if(!empty($item['dt_vencimento']) || !is_null($item['dt_vencimento']))
+					Model_Despesas::getInstance()->update(array('dt_vencimento' => retornaYmd($item['dt_vencimento'])), 'co_despesa = '.$item['co_despesa']);
+			}
+		}catch(Exception $e){
+			debug($e, 1);
+		}
+	}
+
+	public function roboAtualizaDataAction(){
+
+		$this->_helper->layout->disableLayout();
+		$this->_helper->viewRenderer->setNoRender();
+
+		set_time_limit(0);
+
+		try{
+			$arrDespesa = Model_Despesas::getInstance()->getConsultaAll(array());
+			foreach ($arrDespesa as $item) {
+				if(!empty($item['dt_cadastro']) || !is_null($item['dt_cadastro']))
+					Model_Despesas::getInstance()->update(array('dt_cadastro' => retornaYmd($item['dt_cadastro'])), 'co_despesa = '.$item['co_despesa']);
+			}
+		}catch(Exception $e){
+			debug($e, 1);
+		}
+	}
+
+	// Load data
+	public function LoadData($file)
+	{
+		// Read file lines
+		$lines = file($file);
+		$data = array();
+		foreach($lines as $line)
+			$data[] = explode(';',trim($line));
+		return $data;
+	}
+
+// Simple table
+	public function BasicTable($header, $data)
+	{
+		// Header
+		foreach($header as $col)
+			$this->Cell(40,7,$col,1);
+		$this->Ln();
+		// Data
+		foreach($data as $row)
+		{
+			foreach($row as $col)
+				$this->Cell(40,6,$col,1);
+			$this->Ln();
+		}
+	}
+
+// Better table
+	public function ImprovedTable($header, $data)
+	{
+		// Column widths
+		$w = array(40, 35, 40, 45);
+		// Header
+		for($i=0;$i<count($header);$i++)
+			$this->Cell($w[$i],7,$header[$i],1,0,'C');
+		$this->Ln();
+		// Data
+		foreach($data as $row)
+		{
+			$this->Cell($w[0],6,$row[0],'LR');
+			$this->Cell($w[1],6,$row[1],'LR');
+			$this->Cell($w[2],6,number_format($row[2]),'LR',0,'R');
+			$this->Cell($w[3],6,number_format($row[3]),'LR',0,'R');
+			$this->Ln();
+		}
+		// Closing line
+		$this->Cell(array_sum($w),0,'','T');
+	}
+
+// Colored table
+	public function FancyTable($header, $data)
+	{
+		// Colors, line width and bold font
+		$this->SetFillColor(255,0,0);
+		$this->SetTextColor(255);
+		$this->SetDrawColor(128,0,0);
+		$this->SetLineWidth(.3);
+		$this->SetFont('','B');
+		// Header
+		$w = array(40, 35, 40, 45);
+		for($i=0;$i<count($header);$i++)
+			$this->Cell($w[$i],7,$header[$i],1,0,'C',true);
+		$this->Ln();
+		// Color and font restoration
+		$this->SetFillColor(224,235,255);
+		$this->SetTextColor(0);
+		$this->SetFont('');
+		// Data
+		$fill = false;
+		foreach($data as $row)
+		{
+			$this->Cell($w[0],6,$row[0],'LR',0,'L',$fill);
+			$this->Cell($w[1],6,$row[1],'LR',0,'L',$fill);
+			$this->Cell($w[2],6,number_format($row[2]),'LR',0,'R',$fill);
+			$this->Cell($w[3],6,number_format($row[3]),'LR',0,'R',$fill);
+			$this->Ln();
+			$fill = !$fill;
+		}
+		// Closing line
+		$this->Cell(array_sum($w),0,'','T');
+	}
+
+	function retornInteiro($var)
+	{
+		// retorna se o inteiro informado é par
+		return $var != '0.00';
+	}
+
+	public function excluirBoletosAction(){
+		ini_set('memory_limit', '640M');
+
+		$arrParam = array();
+
+		if( $this->getRequest()->isPost() ) {
+
+			$arrParam = array(
+				"co_pessoa_juridica"	=> $this->getRequest()->getParam('co_pessoa'),
+				"nu_documento" 			=> $this->getRequest()->getParam('nu_documento'),
+				"nu_nosso_numero"		=> $this->getRequest()->getParam('ds_nosso_numero'),
+				"ds_fic_comp"			=> $this->getRequest()->getParam('ds_fic_comp'),
+				"dt_inicio_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_vencimento') ),
+				"dt_final_vencimento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_vencimento') ),
+				"dt_inicio_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_inicio_pagamento') ),
+				"dt_final_pagamento"	=> retornaYmd( $this->getRequest()->getParam('dt_final_pagamento') ),
+				"st_pagamento"			=> $this->getRequest()->getParam('st_pagamento'),
+				"st_consulta"			=> $this->getRequest()->getParam('st_consulta')
+			);
+
+			$this->view->co_pessoa_juridica		= $this->getRequest()->getParam('co_pessoa');
+			$this->view->nu_documnto 			= $this->getRequest()->getParam('nu_documento');
+			$this->view->ds_nosso_numero		= $this->getRequest()->getParam('ds_nosso_numero');
+			$this->view->ds_fic_comp			= $this->getRequest()->getParam('ds_fic_comp');
+			$this->view->dt_inicio_vencimento	= $this->getRequest()->getParam('dt_inicio_vencimento');
+			$this->view->dt_final_vencimento	= $this->getRequest()->getParam('dt_final_vencimento');
+			$this->view->dt_inicio_pagamento	= $this->getRequest()->getParam('dt_inicio_pagamento');
+			$this->view->dt_final_pagamento		= $this->getRequest()->getParam('dt_final_pagamento');
+			$this->view->st_pagamento			= $this->getRequest()->getParam('st_pagamento');
+			$this->view->st_consulta			= $this->getRequest()->getParam('st_consulta');
+		}
+
+		$arrBoletos = Model_Boleto::getInstance()->getConsultaAll($arrParam);
+
+		$totalValor = array_count_values(array_column($arrBoletos, 'ds_valor'));
+
+		if($this->getRequest()->getParam('st_pagamento') == 1){
+			$this->view->total = array_sum(array_column($arrBoletos, 'abertos'));
+		}elseif($this->getRequest()->getParam('st_pagamento') == 2){
+			$this->view->total = array_sum(array_column($arrBoletos, 'pagos'));
+		}else{
+			$this->view->total = array_sum(array_column($arrBoletos, 'ds_valor'));
+		}
+
+		$this->view->cTotalValor = $totalValor;
+		$this->view->cTotal = count($arrBoletos);
+
+		// Abertos
+		$this->view->abertos = array_sum(array_column($arrBoletos, 'abertos'));
+		$this->view->cAbertos = count(array_filter(array_column($arrBoletos, 'abertos')));
+
+
+		// Pagos
+		$this->view->pagos = array_sum(array_column($arrBoletos, 'pagos'));
+		$this->view->cPagos = count(array_filter(array_column($arrBoletos, 'pagos')));
+
+		$page = $this->getRequest()->getParam('nu_page') ? $this->getRequest()->getParam('nu_page'):  $this->_getParam('page', 1);
+		$pcount = $this->_getParam('count_per_page', 20);
+
+		$paginator = Zend_Paginator::factory($arrBoletos);
+		$paginator->setCurrentPageNumber($page)
+			->setItemCountPerPage($pcount);
+
+		$this->view->paginator = $paginator;
+		$this->view->pcount = $pcount;
+	}
+
+
+
+}
+

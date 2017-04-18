@@ -1,0 +1,36 @@
+<table id="table" class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Protocolo</th>
+					<th>Tipo</th>
+					<th>Data</th>
+					<th>Anexo</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php 
+			if( sizeof( $this->paginatorProtocolos ) ):
+				foreach ( $this->paginatorProtocolos as $protocolo ) : 
+			?>
+				<tr>
+					<td><?php echo $protocolo['nu_protocolo']?></td>
+					<td><?php echo $protocolo['ds_tipo_protocolo'] ?></td>
+					<td><?php echo retornaDmy( $protocolo['dt_abertura'] ) ?></td>
+					<td>
+						<?php 
+							if( $protocolo['no_arquivo'] ) :
+								$caminho = Zend_Registry::get('config')->sistema->url .'download/get/arquivo/' . $protocolo['no_arquivo'] . '/path/anuidade/filename/' . $protocolo['no_arquivo'];
+						?>
+							<a href="<?php echo $caminho?>"><?php echo $protocolo['ds_lbl_arquivo']?></a>
+						<?php endif;?>
+					</td>
+				</tr>
+			<?php endforeach;
+			else :
+			?>
+				<tr class="alert alert-block alert-error fade in">
+					<td colspan="4"><div align="center">Nenhum resultado encontrado2!</div></td>
+				</tr>
+			<?php endif;?>
+			</tbody>
+		</table>

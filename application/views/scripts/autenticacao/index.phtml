@@ -1,0 +1,51 @@
+<?php if(!Zend_Auth::getInstance()->getIdentity()) { ?>
+	<script src="<?=$this->baseUrl().'/bootstrap/js/jquery.js'?>"></script>
+    <script src="<?=$this->baseUrl().'/bootstrap/js/bootstrap.js'?>"></script>
+	<?php $this->headScript()->appendFile($this->baseUrl().'/js/autenticacao/index.js')?>	
+	<style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+    
+    <div class="container" style="margin-top: 50px;">
+
+      <form method="POST" action="" accept-charset="UTF-8" class="form-signin">
+        <h2 align="center" class="form-signin-heading">SISSCM</h2>
+          <img style="width: 80%" align="center" src="<?=Zend_Registry::get('config')->caminho->componente?>images/logo_scm.jpg" class="img-circle" alt="User Image"/>
+        <input type="text" placeholder="Login" name="ds_login" id="ds_login" class="input-block-level">
+        <input type="password" placeholder="Senha" name="ds_senha" id="ds_senha" class="input-block-level">
+        <button type="submit" class="btn btn-large btn-primary">Entrar</button><br>
+        <div align="center" style="color: #FFF; margin-top:5px; background: red;padding: 5px;<?php echo !( $this->message ) ? 'display:none;' : 'display:block;' ?>"><?php if( $this->message ) echo $this->message;?></div>
+      </form>
+	  
+    </div>
+<?php } ?>

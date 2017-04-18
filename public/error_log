@@ -1,0 +1,74 @@
+[27-Aug-2013 09:56:31] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 09:58:28] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 09:58:29] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 10:00:03] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 10:00:37] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 10:00:50] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 10:00:51] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''pdo_mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[27-Aug-2013 10:02:46] PHP Fatal error:  Uncaught exception 'Zend_Exception' with message 'Security check: Illegal character in filename' in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php:303
+Stack trace:
+#0 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(128): Zend_Loader::_securityCheck('Zend/Db/Adapter...')
+#1 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php(94): Zend_Loader::loadFile('Zend/Db/Adapter...', NULL, true)
+#2 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Db.php(250): Zend_Loader::loadClass('Zend_Db_Adapter...')
+#3 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(142): Zend_Db::factory(''Pdo_Mysql'', Array)
+#4 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Resource/Db.php(154): Zend_Application_Resource_Db->getDbAdapter()
+#5 /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Application/Bootstrap/BootstrapAbstract.php(681): Zend_Application_Resource_Db->init()
+#6 /home in /home/wwwtenis/public_html/desenvolvimento/admin/library/Zend/Loader.php on line 303
+[01-Sep-2013 00:00:25] PHP Warning:  unlink(fotos/camisav1.jpg) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/wwwtenis/public_html/desenvolvimento/admin/application/controllers/FotoController.php on line 98
+[09-Sep-2013 22:07:37] PHP Fatal error:  Call to undefined method Zend_File_Transfer_Adapter_Http::setHeight() in /home/wwwtenis/public_html/admin/application/controllers/FotoController.php on line 32

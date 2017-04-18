@@ -1,0 +1,54 @@
+/**
+ * 
+ *
+ * Arquivo de estilos da paginação do sistema.
+ *
+ * @author      Gilvan Junior
+ * @copyright   Sindicato
+ * @package     Sindicato_
+ * @since       Arquivo disponível desde a versão 1.0
+ * @version     $Id$
+ */
+
+.paging_two_button .fg-button { float: left; cursor: pointer; }
+
+.paging_full_numbers .fg-button { padding: 2px 6px; cursor: pointer; }
+.paging_full_numbers { width: 60% !important; }
+
+.fg-toolbar { padding: 5px; }
+
+.dataTables_paginate { width: auto; }
+.dataTables_filter { width: 40%; float: right; text-align: right; }
+.dataTables_length { width: 40%; float: left; }
+.dataTables_info { width: 40%; float: left; }
+.dataTables_paginate { float: right; text-align: right; }
+
+.ui-grid { width: auto; padding: .4em;  background-image: none; }
+.ui-grid .ui-grid-content { width: 100%; border-collapse: collapse; }
+.ui-grid table tbody td, .ui-grid .ui-grid-header, .ui-grid table thead a { padding: .4em;  }
+.ui-grid table tbody td {  text-align: left; font-weight: normal;  }
+.ui-grid .ui-grid-header, .ui-grid .ui-grid-footer { padding: .8em .4em; text-align: center; vertical-align: middle}
+.ui-grid .ui-grid-footer { background-image: none; font-weight: normal; text-align: left; }
+.ui-grid table thead a { display: block; text-transform: uppercase}
+.ui-grid .ui-icon { float: right; }
+.ui-grid .ui-grid-paging { float: right; }
+.ui-grid .ui-grid-paging-prev { float: left; width: 16px; height: 16px; }
+.ui-grid .ui-grid-paging-next { float: right; width: 16px; height: 16px; }
+.ui-grid .btnDetalhe { width: 16px; cursor: pointer; }
+.ui-grid td {vertical-align: middle;border: 1px solid #ccc}
+.ui-grid tbody tr.even:hover, .ui-grid tbody tr.even td.highlighted { background-color: #d3d3d3;}
+.ui-grid tbody tr.odd:hover, .ui-grid tbody tr.odd td.highlighted { background-color: #dadada; }
+.ui-grid tr.odd { background-color: #fff; }
+.ui-grid tr.even { background-color: #f3f3f3; }
+
+.fg-button { outline: 0; margin:0 4px 0 0; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; }
+.fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+.fg-button a{ float:left; }
+.fg-button-icon-left { padding-left: 2.1em; }
+.fg-button-icon-right { padding-right: 2.1em; }
+.fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }
+
+div#icons { float: inherit}
+div#icons a { width: 16px; padding: 1px; margin-left: 2px; float: right; cursor: pointer;}

@@ -1,0 +1,283 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/administracao/acompanhamento/index.js" type="text/javascript"></script>
+	<?php if(isset($_SESSION['message'])):?>
+		<?php if($_SESSION['message']['msg'] == 'success'):?>
+			<div id="message_success" class="alert alert-success">
+			<a class="close" data-dismiss="alert">×</a>
+			<h4 class="alert-heading"><?php echo $_SESSION['message']['message']?></h4>
+			</div>
+		<?php endif; ?>
+		<?php if($_SESSION['message']['msg'] == 'error'):?>
+			<div id="message_error" class="alert alert-error">
+			<a class="close" data-dismiss="alert">×</a>
+			<h4 class="alert-heading"><?php echo $_SESSION['message']['message']; ?></h4>
+			</div>
+		<?php endif; ?>
+		<script type="text/javascript">
+			<?php if( $_SESSION['message']['msg'] == 'success' ) : ?>
+			$('#message_success').show('slide').delay(8000).hide('slide');
+			<?php elseif( $_SESSION['message']['msg'] == 'erro' ) :?>
+			$('#message_error').show('slide').delay(8000).hide('slide');
+			<?php
+			endif;
+			?>
+			var data = '<?php echo $this->data;?>';
+		</script>
+    <?php endif;?>
+
+
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: Checklist de Acompanhamento de Processo ::.</h3>
+	</div>
+</div>
+<div>
+	<button style="float: right" class="btn btn-primary" type="button" id="btnSalvarAcompanhamento">Salvar Checklist</button> &nbsp;&nbsp;
+</div>
+<div id="conteudo">
+<?php if( $this->vencidas > 0 ):?>
+<div class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Despesas Vencidas!</h4>
+    Exite(m) <span class="badge badge-warning"><?php echo $this->vencidas?></span> Despesas vencidas! <span id='slaVencido' class="badge badge-error"><a style="color: #FFF" href="<?php echo $this->baseUrl()?>/financeiro/movimentacoes/despesas-vencidas">ver</a></span>
+</div>
+<?php endif;?>
+<?php if( $this->vencendo > 0 ):?>
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Despesas Vencendo!</h4>
+    Exite(m) <span class="badge badge-warning"><?php echo $this->vencendo?></span> Despesas vencendo hoje! <span id='slaVencido' class="badge badge-error"><a style="color: #FFF" href="<?php echo $this->baseUrl()?>/financeiro/movimentacoes/despesas-vencendo">ver</a></span>
+</div>
+<?php endif;?>
+<div>
+    <form name="frmAcompanhamento" id="frmAcompanhamento" method="post">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#empresa" data-toggle="tab">EMPRESA</a></li>
+      <li class="hide" id="cFase1"><a href="#1fase" data-toggle="tab">1ª Fase</a></li>
+      <li class="hide" id="cFase2"><a href="#2fase" data-toggle="tab">2ª Fase</a></li>
+      <li class="hide" id="cFase3"><a href="#3fase" data-toggle="tab">3ª Fase</a></li>
+      <li class="hide" id="cUltimaFase"><a href="#ultimafase" data-toggle="tab">Última Fase - Cadastramento</a></li>
+      <li class="hide" id="cProtocolo"><a href="#protocolo" data-toggle="tab">Protocolo</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+    	<input type="hidden" id="co_contrato" name="co_contrato" value="<?php echo $this->co_contrato?>">
+      <div class="tab-pane active in" id="empresa">
+      	<?php 
+      		$cCheckEmpresa = 0;
+			$cEmpresa = count($this->empresa);
+      		foreach( $this->empresa as $empresa):
+      			?>
+      			<p>
+      				<?php 
+      					if( in_array( $empresa['co_checklist'], array_column( $this->arrcontratoChecklist, 'co_checklist') ) ) :
+      						echo '<img src="'.$this->baseUrl().'/images/checked.png"> '.$empresa['ds_checklist'];
+      						$cCheckEmpresa++; 
+      					else: 
+      				?>
+      				<img id="img_<?php echo $empresa['co_checklist'];?>" style="cursor:pointer;" onclick="checa('<?php echo $empresa['co_checklist'];?>')" src="<?php echo $this->baseUrl();?>/images/UnChecked.png">
+      				<input id="check_<?php echo $empresa['co_checklist'];?>" type="checkbox" name="fase[]" value="<?php echo $empresa['co_checklist'];?>"> <?php echo $empresa['ds_checklist'];?>
+      				<?php endif;?>
+      			<p>
+      			<hr>
+      	<?php endforeach;?>
+      </div>
+      <div class="tab-pane fade" id="1fase">
+      	<?php 
+      		$cFase1 = count( $this->fase1 );
+      		$cCheckFase1 = 0;
+      		foreach( $this->fase1 as $fase1):
+      			?>
+      			<p>
+      				<?php 
+      					if( in_array( $fase1['co_checklist'], array_column( $this->arrcontratoChecklist, 'co_checklist') ) ) :
+      						echo '<img src="'.$this->baseUrl().'/images/checked.png"> '.$fase1['ds_checklist'];
+      						$cCheckFase1++; 
+      					else: 
+      				?>
+      				<img id="img_<?php echo $fase1['co_checklist'];?>" style="cursor:pointer;" onclick="checa('<?php echo $fase1['co_checklist'];?>')" src="<?php echo $this->baseUrl();?>/images/UnChecked.png">
+      				<input id="check_<?php echo $fase1['co_checklist'];?>" type="checkbox" name="fase[]" value="<?php echo $fase1['co_checklist'];?>"> <?php echo $fase1['ds_checklist'];?>
+      				<?php endif;?>
+      			<p>
+      			<hr>
+      	<?php endforeach;?>
+      </div>
+      <div class="tab-pane fade" id="2fase">
+      	<?php 
+	      	$cFase2 = count( $this->fase2 );
+	      	$cCheckFase2 = 0;
+      		foreach( $this->fase2 as $fase2):
+      			?>
+      			<p>
+      				<?php
+					if( in_array( $fase2['co_checklist'], array_column( $this->arrcontratoChecklist, 'co_checklist') ) ) :
+      						echo '<img src="'.$this->baseUrl().'/images/checked.png"> '.$fase2['ds_checklist'];
+      						$cCheckFase2++; 
+      					else: 
+      				?>
+      				<img style="cursor:pointer;" onclick="$(this).attr('src', sistemaUrl + 'images/checked.png'); $('#check_<?php echo $fase2['co_checklist'];?>').attr( 'checked', true)" src="<?php echo $this->baseUrl();?>/images/UnChecked.png">
+      				<input id="check_<?php echo $fase2['co_checklist'];?>" type="checkbox" name="fase[]" value="<?php echo $fase2['co_checklist'];?>"> <?php echo $fase2['ds_checklist'];?>
+      				<?php endif;?>
+      			<p>
+      			<hr>
+      	<?php endforeach;?>
+      </div>
+      <div class="tab-pane fade" id="3fase">
+      	<?php 
+	      	$cFase3 = count( $this->fase3 );
+	      	$cCheckFase3 = 0;
+      		foreach( $this->fase3 as $fase3):
+      			?>
+      			<p>
+      				<?php
+					if( in_array( $fase3['co_checklist'], array_column( $this->arrcontratoChecklist, 'co_checklist') ) ) :
+      						echo '<img src="'.$this->baseUrl().'/images/checked.png"> '.$fase3['ds_checklist'];
+      						$cCheckFase3++; 
+      					else: 
+      				?>
+      				<img id="img_<?php echo $fase3['co_checklist'];?>" style="cursor:pointer;" onclick="checa('<?php echo $fase3['co_checklist'];?>')" src="<?php echo $this->baseUrl();?>/images/UnChecked.png">
+      				<input id="check_<?php echo $fase3['co_checklist'];?>" type="checkbox" name="fase[]" value="<?php echo $fase3['co_checklist'];?>"> <?php echo $fase3['ds_checklist'];?>
+      				<?php endif;?>
+      			<p>
+      			<hr>
+      	<?php endforeach;?>
+      </div>
+      <div class="tab-pane fade" id="ultimafase">
+      	<?php 
+	      	$cUltimaFase = count( $this->ultimafase );
+	      	$cCheckUltimaFase = 0;
+      		foreach( $this->ultimafase as $ultimafase):
+      			?>
+      			<p>
+      				<?php
+					if( in_array( $ultimafase['co_checklist'], array_column( $this->arrcontratoChecklist, 'co_checklist') ) ) :
+      						echo '<img src="'.$this->baseUrl().'/images/checked.png"> '.$ultimafase['ds_checklist'];
+      						$cCheckUltimaFase++; 
+      					else: 
+      				?>
+      				<img style="cursor:pointer;" onclick="$(this).attr('src', sistemaUrl + 'images/checked.png'); $('#check_<?php echo $ultimafase['co_checklist'];?>').attr( 'checked', true)" src="<?php echo $this->baseUrl();?>/images/UnChecked.png">
+      				<input id="check_<?php echo $ultimafase['co_checklist'];?>" type="checkbox" name="fase[]" value="<?php echo $ultimafase['co_checklist'];?>"> <?php echo $ultimafase['ds_checklist'];?>
+      				<?php endif;?>
+      			<p>
+      			<hr>
+      	<?php endforeach;?>
+      </div>
+      <div class="tab-pane" id="protocolo">
+		<div>
+		  	<button data-toggle="modal" href="#modalCadastro" style="float: right" class="btn btn-success" type="button" id="btnSalvarAcompanhamento">Adicionar Protocolo</button> &nbsp;&nbsp;
+		</div>
+		<br />
+		<br />
+	  	<div id="listarProtocolos"></div>
+      </div>
+      </form>
+      
+  </div>
+</div>
+
+<!-- Modal -->
+  <div class="modal" id="modalCadastro">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="$('#modalCadastro').modal('hide');" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 id="modaltitle" class="modal-title">Cadastro de Protocolos</h4>
+        </div>
+        <div id="modalbody" class="modal-body">
+			<form name="frmModalProtocolo" id="frmModalProtocolo" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+				<br>
+				<br>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Protocolo:</label>
+					<div class="controls">
+						<input name="co_protocolo" id="co_protocolo" type="hidden" />
+						<input name="co_contrato" id="co_contrato_modal" value="<?php echo $this->co_contrato?>" type="hidden" />
+						<input name="nu_protocolo" required="required" class="input-large" id="nu_protocolo" type="text" size="50" maxlength="100" value="" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Tipo:</label>
+					<div class="controls">
+						<?php echo $this->tipoprotocolo();?>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Data de Abertura:</label>
+					<div class="controls">
+						<input name="dt_abertura" required="required" class="input-large data" id="dt_abertura" type="text" size="50" maxlength="100" value="" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Anexar Documento:</label>
+					<div>
+						<span class="btn btn-file">
+							<input type="file" name="no_arquivo" id="no_arquivo" />
+						</span> 
+						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+						<button type="submit" id="btnSalvarProtocolo" class="btn btn-primary">Salvar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+<script type="text/javascript">
+ $('#frmAcompanhamento').find('input:checkbox').hide();
+
+ $('#listarProtocolos').load( sistemaUrl + 'administracao/acompanhamento/listar-protocolos/co_contrato/' + base64_encode( $('#co_contrato').val() ) );
+function checa( co_checklist ){
+	if( $('#check_' + co_checklist ).is(':checked') ){
+		$('#img_' + co_checklist ).attr('src', sistemaUrl + 'images/UnChecked.png'); 
+		$('#check_' + co_checklist ).removeAttr( 'checked');
+	}else{
+		$('#img_' + co_checklist ).attr('src', sistemaUrl + 'images/checked.png'); 
+		$('#check_' + co_checklist ).attr( 'checked', true);
+	}
+	
+} 
+<?php if( $cEmpresa == $cCheckEmpresa ): ?>
+	$('#cFase1').removeClass('hide');
+	$('#frmAcompanhamento').find('li').removeClass('active');
+	$('#frmAcompanhamento').find('div').find('.tab-pane').removeClass('active');
+	$('#cFase1').addClass('active');
+	$('#1fase').removeClass('fade');
+	$('#1fase').addClass('active');
+	$('#cProtocolo').removeClass('hide');
+<?php endif; ?>
+
+ <?php if( $cFase1 == $cCheckFase1 ): ?>
+	 $('#cFase2').removeClass('hide');
+	 $('#frmAcompanhamento').find('li').removeClass('active');
+	 $('#frmAcompanhamento').find('div').find('.tab-pane').removeClass('active');
+	 $('#cFase2').addClass('active');
+	 $('#2fase').removeClass('fade');
+	 $('#2fase').addClass('active');
+	 $('#cProtocolo').removeClass('hide');
+ <?php endif; ?>
+ <?php if( $cFase2 == $cCheckFase2 ): ?>
+ $('#cFase3').removeClass('hide');
+ $('#frmAcompanhamento').find('li').removeClass('active');
+ $('#frmAcompanhamento').find('div').find('.tab-pane').removeClass('active');
+ $('#cFase3').addClass('active');
+ $('#3fase').removeClass('fade');
+ $('#3fase').addClass('active');
+ $('#cProtocolo').removeClass('hide');
+ <?php endif; ?>
+ <?php if( $cFase3 == $cCheckFase3 ): ?>
+ $('#cUltimaFase').removeClass('hide');
+ $('#frmAcompanhamento').find('li').removeClass('active');
+ $('#frmAcompanhamento').find('div').find('.tab-pane').removeClass('active');
+ $('#cUltimaFase').addClass('active');
+ $('#ultimafase').removeClass('fade');
+ $('#ultimafase').addClass('active');
+ $('#cProtocolo').removeClass('hide');
+ <?php endif; ?>
+ <?php if( $cUltimaFase == $cCheckUltimaFase ): ?>
+ $('#btnSalvarAcompanhamento').attr('disabled', 'disable');
+ <?php endif; ?>
+</script>

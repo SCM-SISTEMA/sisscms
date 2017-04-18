@@ -1,0 +1,59 @@
+/**
+ * DATASUS - ESQUELETO PADRÃO DE SISTEMAS DO DATASUS
+ *
+ * Arquivo de estilos do sistema.
+ *
+ * @author      Marcio Paiva Barbosa <marcio.barbosa@saude.gov.br>
+ * @copyright   Copyright (c) 2010, DATASUS
+ * @package     Datasus_
+ * @since       Arquivo disponível desde a versão 1.0
+ * @version     $Id$
+ */
+
+body { font: normal 0.75em Calibri, Verdana, Arial; background-color: #fff; color: #000000;}
+
+#geral {margin: 5px 10px 0px 10px; min-width:770px; }
+
+
+#barraSuperior { float:inherit; height:36px; background: url(../images/governo-superior-02.png); margin: 0 30px 0 30px; }
+#barraSuperior div.esquerda { float: left; height:36px; width: 274px; margin-left: -30px; background: url(../images/governo-superior-01.png); }
+#barraSuperior div.centro{ float: left; height:36px; }
+#barraSuperior div.direita { float: right; height:36px; width: 492px; margin-right: -30px; background: url(../images/governo-superior-03.png); }
+
+#barraLaranja { background: url(../images/governo-barra.png); width:auto; height:13px; }
+
+#barraSistemaSup { float: inherit; height:44px; background-color:#006837; padding: 0px 10px 0px 10px;}
+#barraSistemaSup span.sigla { float: left; font-weight: bold; font-size: 2.8em; color: #fff;  text-transform:uppercase; text-shadow: black 0.1em 0.1em 0.2em}
+#barraSistemaInf { float: inherit; height:16px; background-color:#006837; padding: 0px 10px 0px 10px;}
+#barraSistemaInf span.descricao {float: left; font-weight: bold; font-size: 1em; color: #fff; text-shadow: 1px 1px 1px #000}
+
+#detalheUsuario { float: right; text-transform: capitalize; color: #fff; text-shadow: 1px 1px 1px #000}
+
+#menuRapido { float: right; text-transform: lowercase; margin-top: 10px;}
+#menuRapido img { vertical-align: middle; }
+#menuRapido a {color:#fff; text-decoration:none; cursor: pointer; }
+#menuRapido a:link { text-decoration:none;}
+#menuRapido a:visited { text-decoration:none;}
+#menuRapido a:active { text-decoration:none;}
+#menuRapido a:hover { text-decoration:none;}
+
+
+#barraMenu { width: 100%; background: #064060; height:1.7em; display: inline-block; border-top: 1px solid #fff;}
+#barraMenu span.M_esquerda { float: left; }
+#barraMenu span.M_direita { float: right; padding: 3px 10px 0px 10px; color: #fff;}
+
+#conteudoImage { background: url(../images/datasus-sombra.png) repeat-y center center; overflow:hidden;}
+#conteudoMeio {width: 760px; min-height:300px; padding: 10px; text-align: left }
+#conteudoFull {width: auto; min-width:760px; min-height:300px; padding: 10px; text-align: left }
+
+#rodape {float: inherit; height:50px; background: url(../images/datasus-logo.png) no-repeat right; background-color:#064060; color: #fff; padding-left: 30px; padding-top: 5px; vertical-align: bottom}
+#rodape span.R_esquerda img {float:left; background-color: red}
+#rodape span.R_direita{float:right; text-align: right; margin-right: 180px;}
+
+#breadcrumb { background: url('../images/bread-background.png') repeat-x; height:30px; line-height:30px; color:#9b9b9b; border:solid 1px #cacaca; overflow:hidden; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 1px #fff}
+#breadcrumb li { list-style-type:none; float:left; padding-left:10px; }
+#breadcrumb a, #breadcrumb span{ height:30px; display:block; background:url('../images/bread-separador.png') no-repeat right; padding-right: 15px; text-decoration: none; color:#454545; }
+#breadcrumb a:hover { color:#35acc5; }
+
+#formulario fieldset { border: 1px solid #cacaca; margin-bottom: 10px; }
+#formulario fieldset legend { font: bolder 1.2em Calibri, Verdana, Arial; color:#9b9b9b; padding: 3px; text-transform: uppercase}

@@ -1,0 +1,245 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/administracao/clientes/visualizar.js" type="text/javascript"></script>
+<div id="message_success" class="alert alert-success hide">
+	<h4 class="alert-heading"><?php echo $_SESSION['message']['message']?></h4>
+</div>
+
+<div id="message_error" class="alert alert-error hide">
+	<a class="close" data-dismiss="alert">×</a>
+	<h4 class="alert-heading">Erro!</h4>
+	<?php echo $_SESSION['message']['message']; ?>
+</div>
+<div class="well bs-component">
+	<fieldset>
+		<legend><h3>.:: Dados do Cliente ::.</h3></legend>
+			<div class="control-group pf">
+				<label class="col-lg-2 control-label" for="inputNome">Nome: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['no_pessoa_fisica']?>
+					<input type="hidden" id="tp_pessoa" value="<?php echo $this->tipo_pessoa?>">
+				</div>
+			</div>
+			<div class="clear pj">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">Razão Social: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['no_razao_social']?>
+				</div>
+			</div>
+			<div class="clear pf">&nbsp;</div>
+			<div class="control-group pf">
+				<label class="col-lg-2 control-label" for="inputNome">Estado Civil:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['co_pessoa_juridica']?>
+				</div>
+			</div>
+			<div class="clear pf">&nbsp;</div>
+			<div class="control-group pf">
+				<label class="col-lg-2 control-label" for="inputNome">Nacionalidade:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['ds_nacionalidade']?>
+				</div>
+			</div>
+			<div class="clear pj">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">Nome Fantasia: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['no_fantasia']?>
+				</div>
+			</div>
+			<div class="clear pj">&nbsp;</div>
+			<div class="form-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">CNAE: <span style="color:red">*</span></label>
+				<div class="col-lg-10">
+					<div id="atividade_primaria">
+						<?php if(sizeof($this->arrCnaePrimario)){?>
+							<fieldset><legend>Atividade Primária</legend>
+								<?php foreach($this->arrCnaePrimario as $cnae){?>
+									<input type="hidden" name="data[pj][nu_cnae_primario][]" value="<?php echo $cnae['cod_cnae']?>">
+									<?php echo $cnae['cod_cnae'].' - '.$cnae['ds_cnae']?>
+								<?php }?>
+							</fieldset>
+							<div class="clear pj">&nbsp;</div>
+						<?php }?>
+					</div>
+					<div id="atividade_secundaria">
+						<?php if(sizeof($this->arrCnaeSecundario)){?>
+							<fieldset><legend>Atividade Secundária</legend>
+								<?php foreach($this->arrCnaeSecundario as $cnae){?>
+									<input type="hidden" name="data[pj][nu_cnae_secundario][]" value="<?php echo $cnae['cod_cnae']?>">
+									<?php echo $cnae['cod_cnae'].' - '.$cnae['ds_cnae']?>
+									<br>
+								<?php }?>
+							</fieldset>
+							<div class="clear pj">&nbsp;</div>
+						<?php }?>
+					</div>
+				</div>
+			</div>
+			<div class="clear pf">&nbsp;</div>
+			<div class="control-group pf">
+				<label class="col-lg-2 control-label" for="inputNome">CPF: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['nu_cpf']?>
+				</div>
+			</div>
+			<div class="clear pj">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">CNPJ: </label>
+				<div class="col-lg-10">
+					<?php echo formataCNPJ($this->arrPessoa['nu_cnpj'])?>
+				</div>
+			</div>
+			<div class="clear pj">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">IE: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['nu_ie']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">CEP:</label>
+				<div class="col-lg-10">
+					<?php echo formataCEP( $this->arrPessoa['nu_cep'] )?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Endereço:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['ds_endereco']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Bairro:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['no_bairro']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Estado: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['sg_uf'];?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Cidade: </label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['no_cidade']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Complemento:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['ds_complemento']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Nro:</label>
+				<div class="col-lg-10">
+					<?php echo $this->arrPessoa['nu_endereco']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome">Sócio: </label>
+				<div class="col-lg-10">
+				<div style="margin-left: 20px;">
+					<table class="table table-striped" style="width: 700px;">
+						<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Profissão</th>
+							<th>Cargo</th>
+							<th>Telefone</th>
+							<th>Whatsapp</th>
+						</tr>
+						</thead>
+						<tbody id="tbodySocio">
+							<?php
+								if(sizeof($this->arrSocio)){
+									$i=0;
+								}
+									foreach($this->arrSocio as $socio ){
+							?>
+								<tr id="socio_<?php echo $i;?>">
+									<td><?php echo $socio['no_socio']?><input type="hidden" name="co_socio" value="<?php echo $socio['co_socio']?>"></td>
+									<td><?php echo $socio['ds_profissao']?></td>
+									<td><?php echo $socio['ds_cargo']?></td>
+									<td><?php echo $socio['nu_telefone']?></td>
+									<td><?php echo $socio['nu_whatsapp']?></td>
+								</tr>
+							<?php $i++;}?>
+
+						</tbody>
+					</table>
+				</div>
+				<div id="hdnSocio"></div>
+				</div>
+
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Telefone 1: </label>
+				<div class="col-lg-10">
+					 <?php echo $this->arrPessoa['nu_telefone_1']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Telefone 2:</label>
+				<div class="col-lg-10">
+					 <?php echo $this->arrPessoa['nu_telefone_2']?>
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">Whatsapp:</label>
+				<div class="col-lg-10">
+					 <?php echo $this->arrPessoa['nu_whatsapp']?>&nbsp;
+				</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group">
+				<label class="col-lg-2 control-label" for="inputNome">E-mail: </label>
+				<div class="col-lg-10">
+					 <?php echo $this->arrPessoa['ds_email']?>
+			</div>
+			</div>
+			<div class="clear">&nbsp;</div>
+			<div class="control-group pj">
+				<label class="col-lg-2 control-label" for="inputNome"> Resp. Técinco </label>
+				<div class="col-lg-10">
+				<div style="margin-left: 20px;">
+					<table class="table table-striped" style="width: 700px;">
+						<thead>
+						<tr>
+							<th>Nome</th>
+							<th>CREA</th>
+						</tr>
+						</thead>
+						<tbody id="tbodyResponsavelTecnico">
+						<?php
+						if(sizeof($this->arrREspTec)){
+							$i=0;
+						foreach($this->arrREspTec as $respTec ){
+							?>
+							<tr>
+								<td><?php echo $respTec['no_responsavel_tecnico']?></td>
+								<td><?php echo $respTec['nu_registro_crea']?></td>
+							</tr>
+						<?php $i++;}}?>
+
+						</tbody>
+					</table>
+				</div>
+				</div>
+
+			</div>
+	</fieldset>
+</div>

@@ -1,0 +1,339 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/administracao/clientes/editar.js')?>
+		<fieldset>
+			<legend><h3>.:: Cadastro de Clientes ::.</h3></legend>
+			<form name="data[frmCadCliente" id="frmCadCliente" class="form-horizontal" action="" method="post">
+				<div class="control-group pf">
+					<label class="control-label" for="inputNome">Nome:</label>
+					<div class="controls">
+						<input name="data[pf][no_pessoa_fisica]" required="required" class="input-xxlarge" id="no_cliente" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['no_pessoa_fisica']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Razão Social:</label>
+					<div class="controls">
+						<input name="data[pj][no_razao_social]" required="required" class="input-xxlarge" id="no_razao_social" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['no_razao_social']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Tipo de Pessoa:</label>
+					<div class="controls">
+						<?php if($this->tp_pessoa == 'pj'):?>
+                        	<input type="radio" checked="checked" class="input" name="data[tp_pessoa]" id="tp_pessoa_pj" value="pj" style="vertical-align: middle;" /> <span class="label">Jurídica</span>
+                        	<input type="hidden" name="data[co_pessoa]" id="co_pessoa" value="<?php echo $this->pessoa['co_pessoa_juridica']?>" />
+						<?php elseif($this->tp_pessoa == 'pf'):?>
+						<input type="radio" checked="checked" class="input" id="tp_pessoa_pf" name="data[tp_pessoa]" value="pf" style="vertical-align: middle;" /> <span class="label">Física</span> &nbsp;&nbsp;
+                        	<input type="hidden" name="data[co_pessoa]" id="co_pessoa" value="<?php echo $this->pessoa['co_pessoa_fisica']?>" />
+						<?php endif?> 
+					</div>
+				</div>
+				<div class="control-group pf">
+					<label class="control-label" for="inputNome">Estado Civil:</label>
+					<div class="controls">
+						<select name="data[pf][ds_estado_civil]" id="estado_civil">
+							<option>Selecione...</option>
+							<option value="Casado" <?php if( $this->pessoa['ds_estado_civil'] == 'Casado') echo 'selected'?>>Casado(a)</option>
+							<option value="Solteiro" <?php if( $this->pessoa['ds_estado_civil'] == 'Solteiro') echo 'selected'?>>Solteiro(a)</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group pf">
+					<label class="control-label" for="inputNome">Nacionalidade:</label>
+					<div class="controls">
+						<input name="data[pf][ds_nacionalidade]" required="required" class="input-xxlarge" id="ds_nacionalidade" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['ds_nacionalidade']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Nome Fantasia:</label>
+					<div class="controls">
+						<input name="data[pj][no_fantasia]" required="required" class="input-xxlarge" id="no_fantasia" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['no_fantasia']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">CNAE:</label>
+					<div class="controls">
+						<select name="data[pj][co_cnae][]" id="co_cnae" multiple="multiple">
+						<option>Selecione...</option>
+						<?php 
+						foreach($this->cnae as $cnae):?>
+						<option <?php if( $this->cnaeCliente ): echo in_array($cnae['co_cnae'], $this->cnaeCliente) ? 'selected="selected"' : ''; endif;?> value="<?php echo $cnae['co_cnae']?>"><?php echo $cnae['cod_cnae'].' - '.$cnae['sg_cnae']?></option>
+						<?php 
+						endforeach;
+						?>
+						</select>
+					</div>
+				</div>
+				<div class="control-group pf">
+					<label class="control-label" for="inputNome">CPF:</label>
+					<div class="controls">
+						<input name="data[pf][nu_cpf]" required="required" class="input-medium cpf" id="nu_cpf" type="text" size="30" maxlength="15" value="<?php echo $this->pessoa['nu_cpf']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">CNPJ:</label>
+					<div class="controls">
+						<input name="data[pj][nu_cnpj]" required="required" class="input-medium cnpj" id="nu_cnpj" type="text" size="50" maxlength="20" value="<?php echo $this->pessoa['nu_cnpj']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">IE:</label>
+					<div class="controls">
+						<input name="data[pj][nu_ie]" required="required" class="input-medium" onkeyup="somente_numero(this);" id="nu_ie" type="text" size="30" maxlength="15" value="<?php echo $this->pessoa['nu_ie']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">CEP:</label>
+					<div class="controls">
+						 <input class="input-medium cep" name="data[nu_cep]" required="required" id="nu_cep" type="text" size="30" maxlength="15" value="<?php echo formataCEP( $this->pessoa['nu_cep'] )?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Endereço:</label>
+					<div class="controls">
+						<input name="data[ds_endereco]" required="required" class="input-xxlarge" id="ds_endereco" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['ds_endereco']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Bairro:</label>
+					<div class="controls">
+						<input name="data[no_bairro]" required="required" class="input-xxlarge" id="no_bairro" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['no_bairro']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" required="required" for="inputNome">Estado:</label>
+					<div class="controls">
+						<?php echo $this->estados($this->pessoa['sg_uf']);?>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Cidade:</label>
+					<div class="controls">
+						<input class="input-xlarge" name="data[no_cidade]" required="required" id="no_cidade" type="text" size="50" maxlength="100" value="<?php echo $this->pessoa['no_cidade']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Complemento:</label>
+					<div class="controls">
+						<input name="data[ds_complemento]" class="input-xlarge" id="ds_complemento" type="text" size="20" maxlength="100" value="<?php echo $this->pessoa['ds_complemento']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Nro:</label>
+					<div class="controls">
+						<input name="data[nu_endereco]" class="input-medium" id="nu_endereco" type="text" size="20" maxlength="100" value="<?php echo $this->pessoa['nu_endereco']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<hr>
+					<label class="control-label" for="inputNome"><button type="button" data-dismiss="modal" id="novoSocio" class="btn btn-warning">+ Sócio</button></label>
+					<div class="controls">
+					<div style="margin-left: 20px;">
+						<table class="table table-striped" style="width: 700px;">
+							<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Profissão</th>
+								<th>Cargo</th>
+								<th>Telefone</th>
+								<th>Skype/MSN</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody id="tbodySocio">
+								<?php foreach( $this->socio as $key => $socio):?>
+								<tr id="socio_<?php echo $key?>">
+							    	<td><?php echo $socio['no_socio']?></td>
+							    	<td><?php echo $socio['ds_profissao']?></td>
+							    	<td><?php echo $socio['ds_cargo']?></td>
+							    	<td><?php echo $socio['nu_telefone']?></td>
+							    	<td><?php echo $socio['ds_skypemsn']?></td>
+							    	<td><a style="cursor:pointer" onclick="removerSocio('<?php echo $key?>')"><i class="icon-trash"></i></a></td>
+							    </tr>
+							    <?php endforeach;?>
+							</tbody>
+						</table>
+					</div>
+					<div id="hdnSocio">
+						<?php foreach( $this->socio as $key => $socio):?>
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][co_socio]" value="<?php echo $socio['co_socio']?>">
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][nome]" value="<?php echo $socio['no_socio']?>">
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][profissao]" value="<?php echo $socio['ds_profissao']?>">
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][cargo]" value="<?php echo $socio['ds_cargo']?>">
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][telefone]" value="<?php echo $socio['nu_telefone']?>">
+							<input socio="<?php echo $key?>" type="hidden" name="data[pj][socio][<?php echo $key?>][skypemsn]" value="<?php echo $socio['ds_skypemsn']?>">
+						<?php endforeach;?>
+					</div>	
+					</div>
+					
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Telefone 1:</label>
+					<div class="controls">
+						 <input class="input-medium ddd_telefone" required="required" type="text" name="data[nu_telefone_1]" id="nu_telefone_1" size="20" value="<?php echo $this->pessoa['nu_telefone_1']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Telefone 2:</label>
+					<div class="controls">
+						 <input class="input-medium ddd_telefone" type="text" name="data[nu_telefone_2]" id="nu_telefone_2" size="20" value="<?php echo $this->pessoa['nu_telefone_2']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">Telefone 3:</label>
+					<div class="controls">
+						 <input class="input-medium ddd_telefone" type="text" name="data[nu_telefone_3]" id="nu_telefone_3" size="20" value="<?php echo $this->pessoa['nu_telefone_3']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputNome">E-mail:</label>
+					<div class="controls">
+						 <input class="input-xxlarge" required="required" name="data[ds_email]" id="ds_email" type="email" size="50" maxlength="100" value="<?php echo $this->pessoa['ds_email']?>" />
+				</div>
+				</div>
+				<div class="control-group pj">
+					<hr>
+					<label class="control-label" for="inputNome"><button type="button" data-dismiss="modal" id="novoResponsavelTecnico" class="btn btn-warning">+ Resp. Técinco</button></label>
+					<div class="controls">
+					<div style="margin-left: 20px;">
+						<table class="table table-striped" style="width: 700px;">
+							<thead>
+							<tr>
+								<th>Código</th>
+								<th>Nome</th>
+								<th>Área Técnica</th>
+								<th>CREA</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody id="tbodyResponsavelTecnico">
+								<?php foreach( $this->socio as $key => $socio):?>
+								<tr id="socio_<?php echo $key?>">
+							    	<td><?php echo $socio['no_socio']?></td>
+							    	<td><?php echo $socio['ds_profissao']?></td>
+							    	<td><?php echo $socio['ds_cargo']?></td>
+							    	<td><a style="cursor:pointer" onclick="removerSocio('<?php echo $key?>')"><i class="icon-trash"></i></a></td>
+							    </tr>
+							    <?php endforeach;?>
+							</tbody>
+						</table>
+					</div>
+					</div>
+					
+				</div>
+				<div class="control-group pj"><hr><h5>Contador</h5></div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Nome:</label>
+					<div class="controls">
+						 <input class="input-xxlarge" required="required" type="text" name="data[pj][no_contador]" id="no_contador" size="20" value="<?php echo $this->pessoa['no_contador']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Telefone:</label>
+					<div class="controls">
+						 <input class="input-medium ddd_telefone" required="required" type="text" name="data[pj][nu_tel_contador]" id="nu_tel_contador" size="20" value="<?php echo $this->pessoa['nu_tel_contador']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">E-mail:</label>
+					<div class="controls">
+						 <input class="input-xxlarge" type="email" required="required" name="data[pj][ds_email_contador]" id="ds_email_contador" size="20" value="<?php echo $this->pessoa['ds_email_contador']?>" />
+					</div>
+				</div>
+				<div class="control-group pj">
+					<label class="control-label" for="inputNome">Skype/MSN:</label>
+					<div class="controls">
+						 <input class="input-xxlarge" type="text" required="required" name="data[pj][ds_skypemsn_contador]" id="ds_skypemsn_contador" size="20" value="<?php echo $this->pessoa['ds_skypemsn_contador']?>" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						<button type="submit" class="btn btn-success btn-large" id="btnSalvar">Salvar</button>
+					</div>
+				</div>
+			</form>
+		</fieldset>
+<br style="clear:both;">
+<!-- Modal -->
+  <div class="modal fade hide" id="modalCadastro">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="$('#modalCadastro').modal('hide');" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 id="modaltitle" class="modal-title">Cadastro de Sócios</h4>
+        </div>
+        <div id="modalbody" class="modal-body">
+        	<form name="frmModalCadastro" id="frmModalCadastro" class="form-horizontal" action="" method="post">
+			<div class="control-group">
+				<label class="control-label" for="inputNome">Nome:</label>
+				<div class="controls">
+					<input name="data[pj][no_socio]" data-rule-required="true" class="input-xlarge" id="no_socio" type="text" size="50" maxlength="100" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputNome">Profissão:</label>
+				<div class="controls">
+					<input name="data[pj][ds_profissao_socio]" class="input-xlarge" id="ds_profissao_socio" type="text" size="50" maxlength="100" value="" required="required" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputNome">Cargo:</label>
+				<div class="controls">
+					<input name="data[pj][ds_cargo_socio]" class="input-xlarge" id="ds_cargo_socio" type="text" size="50" maxlength="100" value="" required="required" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputNome">Telefone:</label>
+				<div class="controls">
+					<input name="data[pj][nu_telefone_socio]" class="input-medium ddd_telefone" id="nu_telefone_socio" type="text" size="50" maxlength="100" value="" required="required" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputNome">Skype/MSN:</label>
+				<div class="controls">
+					<input name="data[pj][ds_skypemsn]" class="input-xlarge" id="ds_skypemsn_socio" type="text" size="50" maxlength="100" value="" required="required" />
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+					<button type="button" id="btnSalvarSocio" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+			</form>
+		</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <!-- Modal -->
+  <div class="modal hide" id="modalCadastroResponsavelTecnico">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="$('#modalCadastroResponsavelTecnico').modal('hide');" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 id="modaltitle" class="modal-title">Responsável Técnico</h4>
+        </div>
+        <div id="modalbody" class="modal-body">
+				<form name="frmCategororia" id="frmCategororia" class="form-horizontal" action="" method="post">
+					<div class="control-group">
+						<?php 
+							foreach( $this->arrResponsavelTecnico as $responsavel_tecnico ) :
+								$crea = ( $responsavel_tecnico['nu_registro_regional'] ) ? $responsavel_tecnico['nu_registro_regional'] :  $responsavel_tecnico['nu_registro_nacional']; 
+						?>
+						<div>
+							 <input crea="<?php echo $crea;?>" noresponsaveltecnico="<?php echo $responsavel_tecnico['no_responsavel_tecnico']?>" dsareatecnica="<?php echo $responsavel_tecnico['ds_area_tecnica']?>" type="radio" name="co_responsavel_tecnico" id="" value="<?php echo $responsavel_tecnico['co_responsavel_tecnico']?>"> 
+							 <?php echo $responsavel_tecnico['no_responsavel_tecnico']?> - 
+							 <?php echo $responsavel_tecnico['ds_area_tecnica']?>  
+						</div>
+						<?php endforeach;?>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+							<button type="button" id="btnAdicionarResponsavelTecnico" class="btn btn-primary">Adicionar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  

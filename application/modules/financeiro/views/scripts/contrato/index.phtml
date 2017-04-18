@@ -1,0 +1,197 @@
+<?php $this->headScript()->appendFile($this->baseUrl().'/js/financeiro/contrato/index.js')?>
+<script> var cliente = 'teste';</script>
+<style>
+.modal {
+	width: 800px;
+	left: 40%;
+}
+.dropdown-menu{
+	float: none;l
+}
+</style>	
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>.:: CONTRATOS ::.</h3>
+	</div>
+	
+</div>
+	<?php if(isset($_SESSION['message'])):?>
+	<div id="message_success" class="alert alert-success hide">
+    <a class="close" data-dismiss="alert">×</a>
+    <h4 class="alert-heading"><?php echo $_SESSION['message']['message']?></h4>
+    </div>
+    
+	<div id="message_error" class="alert alert-error hide">
+    <a class="close" data-dismiss="alert">×</a>
+    <h4 class="alert-heading">Erro!</h4>
+    	<?php echo $_SESSION['message']['message']; ?>
+    </div>
+    <?php unset($_SESSION['message']);endif;?>
+    
+    <script type="text/javascript">
+   		<?php if( $this->msg == 'success' ) : ?>
+			$('#message_success').show('slide').delay(8000).hide('slide');
+		<?php elseif( $this->msg == 'erro' ) :?>
+			$('#message_error').show('slide').delay(8000).hide('slide');
+	    <?php 
+	    endif;
+	    ?>
+	    var data = '<?php echo $this->data;?>';
+	</script>
+	
+<table id="table" class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Plano</th>
+			<th>Forma de Pagamento</th>
+			<th>Data de Cadastro</th>
+			<th>Status</th>
+			<th>Opções</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php 
+	if( sizeof($this->paginator) ):
+		foreach ($this->paginator as $contrato) : 
+	?>
+		<tr class="<?php echo retornaClassStatus( $contrato['st_status'] )?>">
+			<td><?php echo $contrato['co_contrato']?></td>
+			<td><?php echo $contrato['ds_plano'] ?></td>
+			<td><?php echo $contrato['ds_forma_pagamento'] ?></td>
+			<td><?php echo retornaDmyHora( $contrato['dt_cadastro'] ) ?></td>
+			<td><?php echo retornaStatus( $contrato['st_status'] )?></td>
+			<td>
+				<!--  <a href="#" onclick="editar('<?php echo $contrato['co_contrato']?>')"><i class="icon-edit"></i></a>-->
+				<!-- <a href="#" title="Parcelas" onclick="parcelas('<?php echo $contrato['co_contrato']?>')"><img src="<?php echo $this->baseUrl()?>/images/credito.png"></a> -->
+				<?php if( $contrato['st_status'] == CO_STATUS_ABERTO ):?>
+				<a href="#" title="Dados do Contrato" onclick="gerarContrato('<?php echo $contrato['co_contrato']?>')"><img src="<?php echo $this->baseUrl()?>/images/contrato.png"></a>
+				<?php endif;?>
+				<a href="#" title="Destrato" onclick="destrato('<?php echo $contrato['co_contrato']?>')"><img src="<?php echo $this->baseUrl()?>/images/destrato.png"></a>
+				<!-- <a href="#" onclick="$('#co_modal').val(<?php echo $contrato['co_contrato']?>);$('#confirm-dialog').modal('show');"><i class="icon-trash"></i></a>-->
+			</td>
+		</tr>
+	<?php endforeach;
+	else :
+	?>
+		<tr class="alert alert-block alert-error fade in">
+			<td colspan="7"><div align="center">Nenhum resultado encontrado!</div></td>
+		</tr>
+	<?php endif;?>
+	</tbody>
+</table>
+<?php echo $this->paginator; ?>
+<!-- Modal -->
+  <div class="modal hide" id="modalCadastro">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="$('#modalCadastro').modal('hide');" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 id="modaltitle" class="modal-title">Cadastro de Contrato</h4>
+        </div>
+        <div id="modalbody" class="modal-body">
+				<form name="frmContrato" id="frmContrato" class="form-horizontal" action="" method="post">
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Cliente: </label>
+						<div class="controls">
+							<?php echo $this->cliente();?>
+							<input type="hidden" id="tp_pessoa" name="tp_pessoa" value="">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Serviço: </label>
+						<div class="controls">
+							<?php echo $this->servico()?>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Data Final: </label>
+						<div class="controls">
+							<input type="text" class="data" required="" name="dt_final" id="dt_final" placeholder="DATA FINAL"><br>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Forma de Pagamento: </label>
+						<div class="controls">
+							<?php echo $this->formapagamento();?>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Valor: </label>
+						<div class="controls">
+							<input type="text" required="" name="ds_valor" id="ds_valor" placeholder="VALOR"><br>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Vencimento (1º Parcela): </label>
+						<div class="controls">
+							<input type="text" class="data" required="" name="dt_vencimento" id="dt_vencimento" placeholder="1º PARCELA"><br>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<!-- Modal -->
+  <div class="modal hide" id="modalFormaPagamento">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onclick="$('#modalCadastro').modal('hide');" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 id="modaltitle" class="modal-title">Cadastro de Forma de Pagamento</h4>
+        </div>
+        <div id="modalbody" class="modal-body">
+				<form name="frmFormaPagamento" id="frmFormaPagamento" class="form-horizontal" action="" method="post">
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Descrição</label>
+						<div class="controls">
+							<input type="text" required="" name="ds_forma_pagamento" id="ds_forma_pagamento" placeholder="DESCRIÇÃO"><br>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Parcelas</label>
+						<div class="controls">
+							<input type="text" maxlength="2" class="parcelas" required="" name="nu_parcelas" id="nu_parcelas" placeholder="PARCELAS"><br>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputNome">Qtd. Dias</label>
+						<div class="controls">
+							<select id="nu_qtd_dias" name="nu_qtd_dias" required='required'>
+								<option value="0">Selecione...</option>
+								<?php for( $i=1;$i<=31;$i++):?>
+								<option value="<?php echo $i?>"><?php echo $i;?></option>
+								<?php endfor;?>
+								
+							</select>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <div class="modal hide fade" id="confirm-dialog">
+	<div class="modal-header">
+		<a class="close" data-dismiss="modal">x</a>
+		<h3>Confirmar</h3>
+	</div>
+	<div class="modal-body">Deseja deletar este registro?<input type="hidden" id="co_modal"></div>
+	<div class="modal-footer">
+		<a style="cursor: pointer" onclick="deletar()" class="btn btn-danger">Ok</a> 
+		<a style="cursor: pointer"	class="btn btn-cancel" data-dismiss="modal">Cancelar</a>
+	</div>
+</div>

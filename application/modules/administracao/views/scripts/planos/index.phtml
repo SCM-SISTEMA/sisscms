@@ -1,0 +1,223 @@
+<script src="<?=Zend_Registry::get('config')->caminho->componente?>js/administracao/planos/index.js" type="text/javascript"></script>
+<style>
+	button{
+		margin-right:10px;
+	}
+</style>
+<div id="message_success" class="alert alert-success hide">
+	<h4 class="alert-heading"></h4>
+</div>
+
+<div id="message_error" class="alert alert-error hide">
+	<h4 class="alert-heading">Erro!</h4>
+</div>
+<div class="navbar">
+	<div class="navbar-inner">
+		<h3>Pós-Outorga
+			<button onclick="limpar()" style="float: right" class="btn btn-primary" type="button" id="novoPlano" data-toggle="modal" href="#modalCadastroPlano">Novo Plano</button></h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Planos</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				<table id="clientes" class="table table-bordered table-striped">
+					<thead>
+					<tr>
+						<th>Plano</th>
+						<th>Opções</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					if( sizeof($this->arrPlanos) ):
+						foreach ($this->arrPlanos as $plano) :
+							?>
+							<tr>
+								<td style="width:90%"><?php echo $plano['ds_plano']?></td>
+								<td>
+									<a onclick="vincularServico(<?php echo $plano['co_plano']?>)" href="#" data-toggle="modal" title="Vincular Serviços"><i class="glyphicon glyphicon-equalizer"></i></a>
+									<a onclick="desativar(<?php echo $plano['co_plano']?>)" href="#" data-toggle="modal" title="Desativar"><i class="glyphicon glyphicon-trash"></i></a>
+								</td>
+							</tr>
+						<?php endforeach;
+					else :
+						?>
+						<tr class="alert alert-block alert-error fade in">
+							<td colspan="8"><div align="center">Nenhum resultado encontrado!</div></td>
+						</tr>
+					<?php endif;?>
+					</tbody>
+				</table>
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+
+
+	</div><!-- /.col -->
+</div><!-- /.row -->
+
+<!-- Modal -->
+<div class="modal" id="modalCadastroPlano">
+	<form name="frmCadPlano" id="frmCadPlano" class="form-horizontal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Cadastrar Plano</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<div class="well bs-component">
+
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="ds_plano">Plano: <span style="color:red">*</span></label>
+							<div class="col-lg-9">
+								<input type="hidden" name="co_plano" id="co_plano">
+								<input type="text" required="required" class="input-xxlarge" name="ds_plano" id="ds_plano">
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="ds_plano">Valor: <span style="color:red">*</span></label>
+							<div class="col-lg-9">
+								<input type="text" required="required" class="input-xxlarge" name="vl_plano" id="vl_plano">
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="no_servico">Escolha os serviços:</label>
+							<div class="col-lg-9">
+								<?php echo $this->servicoposoutorga()?>
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<label class="col-lg-3 control-label" for="no_servico">Modelo de contrato:</label>
+						<div class="control-group">
+							<div class="clear">&nbsp;</div>
+							<div class="col-lg-9">
+								<textarea id="ds_modelo" name="ds_modelo" rows="25">
+									<?php echo $this->dados['modeloContrato']['ds_modelo']?>
+								</textarea>
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+					<button type="submit" id="btnSalvarPlano" class="btn btn-primary">Salvar</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</form>
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal" id="modalVicularServicos">
+	<form name="frmCadPlanoServico" id="frmCadPlanoServico" class="form-horizontal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Cadastrar Plano</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<div class="well bs-component">
+						<input type="hidden" name="data[co_plano]" id="co_plano_servico" value="">
+						<table id="clientes" class="table table-bordered table-striped">
+							<thead>
+							<tr>
+								<th></th>
+								<th>Serviço</th>
+							</tr>
+							</thead>
+							<tbody>
+							<?php
+							if( sizeof($this->arrServicos) ):
+								foreach ($this->arrServicos as $servico) :
+									?>
+									<tr>
+										<td style="width:10%"><input type="checkbox" name="data[co_servico][]" value="<?php echo $servico['co_servico']?>"></td>
+										<td>
+											<?php echo $servico['ds_servico']?>
+										</td>
+									</tr>
+								<?php endforeach;
+							else :
+								?>
+								<tr class="alert alert-block alert-error fade in">
+									<td colspan="2"><div align="center">Nenhum resultado encontrado!</div></td>
+								</tr>
+							<?php endif;?>
+							</tbody>
+						</table>
+						<div class="clear">&nbsp;</div>
+					</div>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+					<button type="submit" id="btnVincularPlanoServico" class="btn btn-primary">Vincular</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</form>
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal" id="modalCadastroServico">
+	<form name="frmCadServico" id="frmCadServico" class="form-horizontal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="tituloModalExistente">Cadastrar Serviço</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<div class="well bs-component">
+
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="no_servico">Nome: <span style="color:red">*</span></label>
+							<div class="col-lg-9">
+								<input type="hidden" name="co_servico" id="co_servico">
+								<input type="text" required="required" class="input-xxlarge" name="no_servico" id="no_servico">
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="sg_servico">Sigla: <span style="color:red">*</span></label>
+							<div class="col-lg-9">
+								<input type="text" required="required" class="input-xxlarge" name="sg_servico" id="sg_servico">
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<div class="control-group">
+							<label class="col-lg-3 control-label" for="inputNome">Descrição: <span style="color:red">*</span></label>
+							<div class="col-lg-9">
+								<textarea id="ds_servico" name="ds_servico" rows="3" class="form-control"></textarea>
+							</div>
+						</div>
+
+						<div class="clear">&nbsp;</div>
+					</div>
+					</p>
+					<div class="clear">&nbsp;</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn">Cancelar</button>
+					<button type="submit" id="btnSalvarServico" class="btn btn-primary">Salvar</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</form>
+</div><!-- /.modal -->

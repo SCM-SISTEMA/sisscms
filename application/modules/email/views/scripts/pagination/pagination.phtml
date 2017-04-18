@@ -1,0 +1,31 @@
+<?php if ($this->pageCount): ?>
+<?php if($this->totalItemCount>0) : $s = 's';endif;?>
+
+<div align="right">
+	<ul class="pagination">
+		<li class=""></li>
+<!-- Previous page link -->
+<?php if (isset($this->previous)): ?>
+	<li>
+		<a class="np-btn" href="#" onclick="paginar(<?php echo $this->previous; ?>)"><i class="fa fa-angle-left  pagination-left"></i></a>
+	</li>
+
+<?php else: ?>
+    <li class=" disabled">
+		<a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+	</li>
+<?php endif; ?>
+<li></li>
+
+<!-- Next page link -->
+<?php if (isset($this->next)): ?>
+	<li>
+		<a class="np-btn" onclick="paginar(<?php echo $this->next; ?>)" href="#"><i class="fa fa-angle-right  pagination-right"></i></a>
+	</li>
+<?php else: ?>
+	<li class=" disabled">
+		<a class="np-btn" href="#"><i class="fa fa-angle-right  pagination-right"></i></a>
+	</li>
+<?php endif; ?>
+</div>
+<?php endif; ?>

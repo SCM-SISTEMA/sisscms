@@ -1,0 +1,466 @@
+<?php if(Zend_Auth::getInstance()->getIdentity()) :
+	$user = Zend_Auth::getInstance()->getIdentity();
+endif;?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><?= Zend_Registry::get('config')->sistema->sigla?> - <?= Zend_Registry::get('config')->sistema->versao?></title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+    <!-- Theme style -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce th
+
+         e load. -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+    <!-- Date Picker -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <!-- DATA TABLES -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- DATA MULTISELECT -->
+    <link href="<?=Zend_Registry::get('config')->caminho->componente?>bootstrap/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <!-- DATA TABLES -->
+    <link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente?>/plugins/validationengine/css/validationEngine.jquery.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <!-- jQuery 2.1.3 -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <!-- jQuery UI 1.11.2 -->
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/plugins/jQueryUI/jquery-ui-1.10.3.js"></script>
+    <?php echo $this->headLink(), PHP_EOL; ?>
+
+<script type="text/javascript">var sistemaUrl = "<?=Zend_Registry::get('config')->sistema->url;?>";</script>
+  </head>
+  <body class="skin-blue">
+    <div class="wrapper">
+      
+      <header class="main-header">
+     
+      	<?php if(Zend_Auth::getInstance()->getIdentity()) { ?>
+        <!-- Logo -->
+        <a href="<?=Zend_Registry::get('config')->caminho->componente?>index" class="logo"><b>SIS</b>SCM - <?= Zend_Registry::get('config')->sistema->versao?></a> 
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-comments"></i>
+                  <span class="label label-warning" id="top-chat"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header" id="topMessages"></li>
+                  <li class="direct-chat-messages">
+                  </li>  
+                  <li class="footer"><a href="#"></a></li>
+                </ul>
+              </li>
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-envelope"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="<?=Zend_Registry::get('config')->caminho->componente?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                          </div>
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li><!-- end message -->
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="<?=Zend_Registry::get('config')->caminho->componente?>dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            AdminLTE Design Team
+                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="<?=Zend_Registry::get('config')->caminho->componente?>dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Developers
+                            <small><i class="fa fa-clock-o"></i> Today</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="<?=Zend_Registry::get('config')->caminho->componente?>dist/img/user3-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Sales Department
+                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="<?=Zend_Registry::get('config')->caminho->componente?>dist/img/user4-128x128.jpg" class="img-circle" alt="user image"/>
+                          </div>
+                          <h4>
+                            Reviewers
+                            <small><i class="fa fa-clock-o"></i> 2 days</small>
+                          </h4>
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+              </li>
+              <!-- Notifications: style can be found in dropdown.less -->
+              <?php
+	            $arrParam = array();
+	            $user = Zend_Auth::getInstance()->getIdentity();
+              ?>
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-bell"></i>
+                  <span class="label label-warning"><?php echo $totalSlaVencido?></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">Você tem <?php echo $totalSlaVencido?> notificações</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="<?php echo $this->baseUrl()?>/chamados/index/sla/true">
+                          <i class="glyphicon glyphicon-warning-sign text-yellow"></i> <?php echo $totalSlaVencido?> Conta(s) a pagar vencida(s)
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">Ver Todos</a></li>
+                </ul>
+              </li>
+              <!-- Tasks: style can be found in dropdown.less -->
+              <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-flag"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Create a nice theme
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Some task I need to do
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <h3>
+                            Make beautiful transitions
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="hidden-xs"><b><?php echo $user['user']->perfil?></b></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <p id="conteudo-usuario">
+                      <br />
+                      <?php 
+                      	if(Zend_Auth::getInstance()->getIdentity()) {
+                      		echo $user['user']->perfil.'<br />';                      
+                      		echo $user['user']->login.'<br />';                      
+                      		echo $user['user']->nome;                      
+                        } else {?>
+			            <a href="<?php echo $this->baseUrl()?>/autenticacao/logout" class="btn btn-app"><i class="ion ion-log-in"></i> Sair </a>
+					  <?php }?>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <?php if(Zend_Auth::getInstance()->getIdentity()) { ?>
+                  <li class="user-body">
+                  	<?php 
+                  		if( $user['user']->id_perfil == CO_PERFIL_ATENDENTE ):
+                  		$resultPausas = Model_Pausa::getInstance()->getConsultaAll( array('id_usuario' => $user['user']->id, 'dt_pausa' => date('Y-m-d')  ) );
+                  		$pausaAtiva = end( $resultPausas );
+                  		if( $pausaAtiva['hr_retorno'] != null || !$resultPausas ):
+                  			if( count( $resultPausas ) < 3 ):
+	                  ?>
+		                    <div class="col-xs-6 text-center">
+					            <a id="btnPausa" class="btn btn-app"><i class="glyphicon glyphicon-pause"></i> Pausar </a>
+		                    </div>
+	                    <?php 
+	                    	endif;
+	                    	else:?>
+		                    <div class="col-xs-6 text-center">
+					            <a id="btnPausa" class="btn btn-app"><i class="glyphicon glyphicon-play-circle"></i> Retornar </a>
+		                    </div>
+	                    <?php endif;?>
+                    <?php endif;?>
+                    <div class="col-xs-6 text-center">
+                      <a href="<?php echo $this->baseUrl()?>/autenticacao/logout" class="btn btn-app"><i class="glyphicon glyphicon-log-in"></i> Sair </a>
+                    </div>
+                  </li>
+                  <?php }?>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <?php }?>
+      </header>
+      <?php if(Zend_Auth::getInstance()->getIdentity()) { ?>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+            </div>
+            <div class="pull-left info">
+              <p>
+              	Bem Vindo! <br>
+              	<?php echo $user['user']->nome?>
+              </p>
+            </div>
+          </div>
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <?php
+                if(Zend_Auth::getInstance()->getIdentity()) {
+                    ?>
+                  <ul class="sidebar-menu">
+                    <li class="header">MÓDULOS</li>
+                    <li>
+                      <a href="#">
+                        <i class="glyphicon glyphicon-cog"></i> <span>Administração</span>
+                        <i class="glyphicon glyphicon-circle-arrow-down pull-right"></i>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/clientes">Clientes</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/cnae">CNAE</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/crea">CREA</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/servicos">SERVIÇOS</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/contrato">CONTRATOS</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/planos">Planos</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/acompanhamento">ACOMPANHAMENTO</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="glyphicon glyphicon-usd"></i> <span>Financeiro</span>
+                        <i class="glyphicon glyphicon-circle-arrow-down pull-right"></i>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>administracao/clientes">Clientes</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/movimentacoes">Movimentações</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/centrocusto">Centro de Custo</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/contrato">Contrato</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/banco">Banco</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/importacao">Importação</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/movimentacoes/boletos">Boletos</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/movimentacoes/despesas">Despesas</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/rastreamento">Rastreamento</a></li>
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>financeiro/email">Email</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="<?php echo Zend_Registry::get('config')->caminho->componente?>email/index">
+                        <i class="glyphicon glyphicon-envelope"></i> <span>E-Mail</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="glyphicon glyphicon-list-alt"></i> <span>Pós-Outorga</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                      </a>
+                      <ul class="treeview-menu">
+                        <li><a href="<?php echo Zend_Registry::get('config')->caminho->componente?>posoutorga/sici">Sici</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="<?php echo Zend_Registry::get('config')->caminho->componente?>pqs/index">
+                        <i class="glyphicon glyphicon-question-sign"></i> <span>PQS</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <?php
+                } else {
+                    echo '';
+                }
+                ?>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+	  
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            SISSCM
+            <small>
+              <?php
+              ?>
+            </small>
+          </h1>
+        </section>
+		<?php }?>
+        <!-- Main content -->
+        <section class="content">
+          <?php echo $this->layout()->content; ?>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://gilvanmelojunior.com">Gilvan Junior</a>.</strong> All rights reserved.
+      </footer>
+    </div><!-- ./wrapper -->
+	<!-- tinyMCE 4.1.9 -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/tinymce/js/tinymce/tinymce.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/morris/morris.min.js" type="text/javascript"></script>
+    <!-- Sparkline -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- jvectormap -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/knob/jquery.knob.js" type="text/javascript"></script>
+    <!-- daterangepicker -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <!-- datepicker -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js" type="text/javascript"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <!-- iCheck -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+    <!-- DATA TABES SCRIPT -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <!-- Slimscroll -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='<?=Zend_Registry::get('config')->caminho->componente?>plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>dist/js/app.min.js" type="text/javascript"></script>
+    <!-- InputMask -->
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+    
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/chartjs/Chart.min.js" type="text/javascript"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>scripts/geral.js" type="text/javascript"></script>
+    
+     <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/validationengine/js/jquery.validationEngine.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/validationengine/js/languages/jquery.validationEngine-pt_BR.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>plugins/validationengine/jquery-validation-1.11.1/dist/jquery.validate.min.js"></script>
+
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/bootstrap/js/bootbox.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/bootstrap/js/bootstrap.lightbox.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>bootstrap/js/bootstrap-wysiwyg.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/bootstrap/js/prettify.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/scripts/priceFormat.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>/scripts/jquery.printElement.js"></script>
+    <script src="<?=Zend_Registry::get('config')->caminho->componente?>bootstrap/js/bootstrap-multiselect.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+  </body>
+</html>

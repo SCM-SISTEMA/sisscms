@@ -1,0 +1,137 @@
+<?php
+/**
+ * DATASUS - ESQUELETO PADR�O DE SISTEMAS DO DATASUS
+ *
+ * Descrição do arquivo (opcional).
+ *
+ * @author      Felipe Calland de Araújo Rosa <felipe.rosa@saude.gov.br>
+ * @copyright   Copyright (c) 2010, DATASUS
+ * @package     Datasus_Siarh_Auth
+ * @since       Arquivo dispon�vel desde a vers�o 1.0
+ * @version     $Id$
+ */
+
+/**
+ * Datasus_Scaweb_Auth class
+ *
+ * Classe responsável pela autenticação com o SCAWEB
+ *
+ * @author      Felipe Calland de Araújo Rosa <felipe.rosa@saude.gov.br>
+ * @author      Marcio Paiva Barbosa <marcio.barbosa@saude.gov.br>
+ * @since       Arquivo disponível desde a vers�o 1.0
+ */
+
+class Datasus_Siarh_Auth implements Zend_Auth_Adapter_Interface {
+    private $_request;
+    private $estagiario;
+
+    /**
+     * Construtor da classe customizada para autenticação
+     *
+     * @param Zend_Controller_Request_Abstract $_request
+     */
+    public function __construct(Zend_Controller_Request_Abstract $_request, $estagiario = null) {
+        $this->_request 	= $_request;
+        $this->estagiario 	= $estagiario;
+    }
+
+    /**
+     * Executa a autenticação
+     *
+     * @throws Zend_Auth_Adapter_Exception Se a autenticação não seja realizada
+     * @return Zend_Auth_Result
+     */
+    public function authenticate() {
+    	//verificando tipo de login estagiario/usuario
+    	if($this->estagiario){
+	    	if (!$this->_request->getParam("nu_cpf") && ! $this->_request->getParam("co_senha")) {
+	            return new Zend_Auth_Result(0, null, array("Parâmetros não informados corretamente para a consulta."));
+	        } else {
+	        	try {
+		            // Consulta acesso do usuário
+		            $Usuario = Model_UsuarioCandidato::getInstance()->getAcessoUsuario($this->_request->getParam("nu_cpf"),crypt($this->_request->getParam("co_senha"), CRYPT_STD_DES));
+	        	} catch (Exception $e) {
+	        		throw new Zend_Auth_Exception($e->getMessage());
+	        	}
+	        	if(!$Usuario) {
+	        		return new Zend_Auth_Result(0, "", array("Login não cadastrado. "));
+	        	}
+	        	
+	        	if($Usuario['ST_REGISTRO_ATIVO'] != 'S'){
+	        		return new Zend_Auth_Result(0, "", array("Usuário desativado entre em contato com o administrador."));
+	        	}
+	        	
+				// Array com informações do usuário
+				$arrPerfilPersonalizado['nome'] 		= $Usuario['NO_USUARIO'];
+				$arrPerfilPersonalizado['cpf'] 			= $Usuario['NU_CPF'];
+				$arrPerfilPersonalizado['email'] 		= $Usuario['DS_EMAIL'];
+				$arrPerfilPersonalizado['co_senha'] 	= $this->_request->getParam("co_senha");
+				$arrPerfilPersonalizado['perfil'] 		= 'Candidato Estagiario';
+		        $arrPerfilPersonalizado['co_perfil'] 	= 1;
+		        $arrPerfilPersonalizado['estagiario'] 	= 1;
+	
+	            // Limpando a instância da webService
+	            $client = null;
+	            $arrAuth = array("perfil" => $arrPerfilPersonalizado);
+	
+	            // Retorno
+	            return new Zend_Auth_Result(1, $arrAuth, array("Autenticação realizada com sucesso."));
+        	}
+    	}else{
+	    	 if (!$this->_request->getParam("ds_email") && ! $this->_request->getParam("co_senha")) {
+	            return new Zend_Auth_Result(0, null, array("Parâmetros não informados corretamente para a consulta."));
+	         } else {
+	        	try {
+		            // Consulta acesso do usuário
+		            $Usuario = Model_Usuario::getInstance()->getAcessoUsuario($this->_request->getParam("ds_email"),crypt($this->_request->getParam("co_senha"), CRYPT_STD_DES));
+	        	} catch (Exception $e) {
+	        		throw new Zend_Auth_Exception($e->getMessage());
+	        	}
+				
+	        	if(!$Usuario) {
+	        		return new Zend_Auth_Result(0, "", array("Nenhum usuário encontrado para as informações."));
+	        	}
+	        	
+				// Array com informações do usuário
+				$arrPerfilPersonalizado['nome'] 		= $Usuario['NO_USUARIO'];
+				$arrPerfilPersonalizado['cpf'] 			= $Usuario['NU_CPF'];
+				$arrPerfilPersonalizado['email'] 		= $Usuario['DS_EMAIL'];
+				$arrPerfilPersonalizado['co_senha'] 	= $this->_request->getParam("co_senha");
+				$arrPerfilPersonalizado['estagiario'] 	= 0;
+				
+	            try {
+	            	// Consulta de unidade(s) vinculada(s) ao usuário
+	            	//$arrPerfilPersonalizado['arrUnidade'] = Model_UsuarioUorg::getInstance()->getUnidadesUsuario($arrPerfilPersonalizado['cpf']);
+	            	
+	            	// Consulta de perfil do usuário
+		            $Perfil = Model_Perfil::getInstance()->getConsultaPerfilCpf($arrPerfilPersonalizado['cpf']);
+	
+		            if($Perfil) {
+		            	// Perfil
+		            	$arrPerfilPersonalizado['perfil'] = $Perfil['NO_PERFIL'];
+		            	$arrPerfilPersonalizado['co_perfil'] = $Perfil['CO_SEQ_PERFIL'];
+		            	
+		            	// Funcionalidades do perfil do usuário
+		            	$arrPerfilFuncionalidade = Model_PerfilFuncionalidade::getInstance()->getConsultaFuncionalidadePerfil($Perfil['CO_SEQ_PERFIL']);
+		            } else {
+		            	return new Zend_Auth_Result(0, "", array("Nenhum perfil encontrado para o usuário: ".$arrPerfilPersonalizado['nome'].", CPF: ".$arrPerfilPersonalizado['cpf'].". Favor vincular um perfil ao usuário."));
+		            }
+	            } catch (Exception $e) {
+	            	throw new Zend_Auth_Exception($e->getMessage());
+	            }
+	
+	            // Limpando a instância da webService
+	            $client = null;
+	
+	            // Array com informações vindas do ScaWeb para a sessão
+	            $arrAuth = array("perfil" => $arrPerfilPersonalizado, "menu" => $arrPerfilFuncionalidade);
+	
+	            // Retorno
+	            return new Zend_Auth_Result(1, $arrAuth, array("Autenticação realizada com sucesso."));
+	        }
+    	}
+    	
+        
+    }
+
+}
