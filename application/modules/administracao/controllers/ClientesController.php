@@ -129,6 +129,7 @@ class Administracao_ClientesController extends Zend_Controller_Action
 					$objModelPessoaJuridica->update( $arrParam, 'co_pessoa_juridica = '.$dadosPj['co_pessoa_juridica'] );
 					$co_pessoa_juridica = $dadosPj['co_pessoa_juridica'];
 				}else{
+                                    
 					$co_pessoa_juridica = $objModelPessoaJuridica->insert( $arrParam );
 				}
 			}catch (Exception $e){

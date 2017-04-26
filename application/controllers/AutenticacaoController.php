@@ -32,6 +32,7 @@ class AutenticacaoController extends Zend_Controller_Action
     public function indexAction() {
     	// Autenticação
     	$auth = Zend_Auth::getInstance();
+      
     	$result = $auth->authenticate(new Sistema_Sgc_Auth($this->getRequest()));
 
 		if($this->getRequest()->isPost()) {

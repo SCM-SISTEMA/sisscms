@@ -6,7 +6,7 @@
  * @author      Gilvan Junior
  * @copyright   Sgc
  * @package     Sgc_Auth
- * @since       Arquivo dispon�vel desde a versão 1.0
+ * @since       Arquivo disponivel desde a versão 1.0
  * @version     $Id$
  */
 

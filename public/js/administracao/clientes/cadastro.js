@@ -146,7 +146,7 @@ $(function(){
 	
 	$( '#btnSalvar' ).click( function(){
 		
-		/*----------- BEGIN validate CODE -------------------------*/
+		//----------- BEGIN validate CODE -------------------------
 		$('#frmCadCliente').validate({
 			rules: {
 				required: "required"
