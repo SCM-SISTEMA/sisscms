@@ -1,0 +1,110 @@
+<?php
+/**
+ * DATASUS - ESQUELETO PADRÃO DE SISTEMAS DO DATASUS
+ *
+ * Layout principal do sistema.
+ *
+ * @author      Marcio Paiva Barbosa <marcio.barbosa@saude.gov.br>
+ * @copyright   Copyright (c) 2010, DATASUS
+ * @package     Datasus_
+ * @since       Arquivo disponível desde a versão 1.0
+ * @version     $Id$
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="noindex,follow" />
+        
+        <title><?= Zend_Registry::get('config')->sistema->sigla;?></title>
+        
+		<link rel="shortcut icon" href="<?=Zend_Registry::get('config')->caminho->componente;?>images/datasus-icone.ico"/>
+		<link rel="icon" type="image/x-icon" href="<?=Zend_Registry::get('config')->caminho->componente;?>images/datasus-icone.ico"/>
+		        
+		<link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente;?>styles/reset.css" type="text/css" media="all" charset="utf-8" />
+		<link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente;?>styles/layout.css" type="text/css" media="all" charset="utf-8" />
+		<link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente;?>styles/jquery-ui.css" type="text/css" media="all" charset="utf-8" />        
+        <link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente;?>styles/menu.css" type="text/css" media="all" charset="utf-8" />
+        <link rel="stylesheet" href="<?=Zend_Registry::get('config')->caminho->componente."styles/form.css";?>" type="text/css" media="screen" charset="utf-8" />
+        <?php echo $this->headLink(), PHP_EOL; ?>
+
+        <script type="text/javascript">var sistemaUrl = "<?=Zend_Registry::get('config')->sistema->url;?>";</script>
+		<script src="<?=Zend_Registry::get('config')->caminho->componente;?>scripts/jquery.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+		<script src="<?=Zend_Registry::get('config')->caminho->componente;?>scripts/jquery-ui.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+        <script src="<?=Zend_Registry::get('config')->caminho->componente;?>scripts/menu.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+        <script src="<?= $this->baseUrl()."/scripts/geral.js";?>" type="text/javascript" language="javascript" charset="utf-8"></script>
+        <?php echo $this->headScript(), PHP_EOL; ?>
+    </head>
+    <body>
+        <div id="geral">
+
+            <div id="barraSuperior">
+                    <div class="esquerda"></div>
+                    <div class="centro"></div>
+                    <div class="direita"></div>
+            </div>
+
+            <div id="barraLaranja"></div>
+
+            <div id="barraSistemaSup">
+                <span class="sigla"><?= Zend_Registry::get('config')->sistema->sigla;?></span>
+                <div id="menuRapido">
+                    <a href="<?php echo $this->baseUrl();?>/"><img alt="" src="<?=Zend_Registry::get('config')->caminho->componente;?>images/barra-btn-principal.png" />home</a>
+                    <!--<a href="#"><img alt="" src="<?=Zend_Registry::get('config')->caminho->componente;?>images/barra-btn-contato.png" />contato</a>-->
+                    <?php
+                    if(Zend_Auth::getInstance()->getIdentity()) {
+                        echo '<a href="'.$this->baseUrl().'/autenticacao/logout"><img src="'.Zend_Registry::get('config')->caminho->componente.'images/barra-btn-sair.png"/>sair</a>';
+                    } else {
+                    	//echo '<a href="'.Zend_Registry::get('config')->scaweb->url.'"><img src="'.Zend_Registry::get('config')->caminho->componente.'images/barra-btn-login.png"/>acessar</a>';
+                    	echo '<a href="'.$this->baseUrl().'/autenticacao/index"><img src="'.Zend_Registry::get('config')->caminho->componente.'images/barra-btn-login.png"/>acessar</a>';
+                    }
+                    ?>
+                </div>
+            </div>
+            
+            <div id="barraSistemaInf">
+                <span class="descricao"><?= Zend_Registry::get('config')->sistema->descricao;?></span>
+                <div id="detalheUsuario">
+                    <?php
+                    if(Zend_Auth::getInstance()->getIdentity()) {
+                    	$arrPerfil = Zend_Auth::getInstance()->getIdentity();
+                        echo "<strong>" . $arrPerfil['perfil']['nome'] . "</strong>";
+                        echo " - ";
+                        echo "<i>" . $arrPerfil['perfil']['perfil'] . "</i>";
+                        echo " | ";
+                        echo Zend_Registry::get('config')->sistema->versao;
+                    } else {
+                        echo Zend_Registry::get('config')->sistema->versao;
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div id="barraMenu">
+                <?php
+                if(Zend_Auth::getInstance()->getIdentity()) {
+                    echo $this->navigation()->menu();
+                } else {
+                    echo '';
+                }
+                ?>
+            </div>
+
+            <div id="conteudoImage" align="center">
+                <div id="conteudoMeio">
+                	<div id="dialog-mensagem"></div>
+                    <?php echo $this->layout()->content; ?>
+                </div>
+            </div>
+
+            <div id="barraLaranja"></div>
+            <div id="rodape">
+                <span class="R_esquerda"><br/></span>
+                <span class="R_direita"></span>
+            </div>
+        </div>
+
+    </body>
+</html>

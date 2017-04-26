@@ -285,7 +285,7 @@ class Financeiro_MovimentacoesController extends Zend_Controller_Action
     
     public function boletosAction(){
 
-		ini_set('memory_limit', '640M');
+		//ini_set('memory_limit', '640M');
 
 		$arrParam = array();
 
@@ -559,7 +559,7 @@ class Financeiro_MovimentacoesController extends Zend_Controller_Action
     }
 
     public function gerarPdfAction(){
-		ini_set('memory_limit', '148M');
+		
 
 		$this->_helper->layout->disableLayout();
 		$this->_helper->viewRenderer->setNoRender();
